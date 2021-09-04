@@ -11,7 +11,7 @@ function App() {
     <div>
       <h1>Search Bar</h1>
       <SearchOption />
-      <h1>IP Display</h1>
+      <h1>Location Display</h1>
       <LocationOption geoApiKey={geoApiKey}/>
       <h1>Article Select</h1>
       <PublisherOption />

@@ -12,10 +12,15 @@ export const updateSearchCountry = (data) => {
     }
 }
 
-export const signIn = () => {
-    return {type: "SIGN_IN"}
+export const updateNewsData = (data) => {
+    return {
+        type: "UPDATE_NEWS_DATA",
+        payload: data
+    }
 }
 
-export const signOut = () => {
-    return {type: "SIGN_OUT"}
+export const clearNewsData = (data) => {
+    return {
+        type: "CLEAR_NEWS_DATA",
+    }
 }
