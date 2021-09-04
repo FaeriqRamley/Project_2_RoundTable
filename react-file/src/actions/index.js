@@ -21,6 +21,6 @@ export const updateNewsData = (data) => {
 
 export const clearNewsData = (data) => {
     return {
-        type: "CLEAR_NEWS_DATA",
+        type: "CLEAR_NEWS_DATA"
     }
 }

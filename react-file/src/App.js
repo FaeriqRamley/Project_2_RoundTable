@@ -5,12 +5,12 @@ import PublisherOption from "./components/PublisherOption";
 
 function App() {
   const geoApiKey = "cb69a240275841eaa61cc32b842c7924";
-  // const newsApiKey = "abb061c97806ac5fbae04e323e379b05";
+  const newsApiKey = "dba1b96e6cc24cb98d29ed09f8bd10ae";
 
   return (
     <div>
       <h1>Search Bar</h1>
-      <SearchOption />
+      <SearchOption newsApiKey={newsApiKey}/>
       <h1>Location Display</h1>
       <LocationOption geoApiKey={geoApiKey}/>
       <h1>Article Select</h1>
