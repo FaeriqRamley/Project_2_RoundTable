@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import ShowIP from "./components/ShowIP";
 import ShowNewsData from "./components/ShowNewsData";
+import ShowCounter from "./components/ShowCounter";
 
 function App() {
   const [userIP,setUserIP] = useState(
@@ -103,6 +104,8 @@ function App() {
       <ShowIP userIP={userIP} setUserIP={setUserIP} geoApiKey={geoApiKey}/>
       <h1>News Data</h1>
       <ShowNewsData newsApiKey={newsApiKey} newsData={newsData} setNewsData={setNewsData}/>
+      <h1>Counter Redux example</h1>
+      <ShowCounter/>
     </div>
   );
 }
