@@ -1,11 +1,11 @@
 import currentUserReducer from "./currentUserReducer";
-import searchIpReducer from "./searchIpReducer";
+import searchCountryReducer from "./searchCountryReducer";
 import searchParamsReducer from "./searchParamsReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
-    searchIP: searchIpReducer,
+    searchCountry: searchCountryReducer,
     searchParams: searchParamsReducer
 })
 

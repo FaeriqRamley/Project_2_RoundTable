@@ -3,15 +3,23 @@ import {useSelector,useDispatch} from 'react-redux';
 import {addSearchParams} from "../actions";
 function SearchOption() {
     const searchRef = useRef();
-    // const fetchIP = async () => {
-    //     const res = await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${props.geoApiKey}`)
-    //     const data = await res.json()
-        
-    //     props.setUserIP(data)
-    //     console.log(data)
-    // }
     const searchParams = useSelector(state => state.searchParams)
     const dispatch = useDispatch()
+    // const fetchNews = async () => {
+    //     const url = `http://api.mediastack.com/v1/news?access_key=${props.newsApiKey}&limit=3&countries=kr`
+    //     console.log(url);
+
+    //     try {
+    //         const res = await fetch(url);
+    //         const data = await res.json();
+
+    //         props.setNewsData(data);
+    //         console.log(props.newsData);
+    //     } catch (err) {
+    //         console.log(err.message)
+    //     }
+    // }
+    
     const handleClick = (e) => {
         e.preventDefault();
         console.log(typeof searchRef.current.value);
