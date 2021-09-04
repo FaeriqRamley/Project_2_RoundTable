@@ -1,10 +1,12 @@
-import counterReducer from "./counter";
-import loggedReducer from "./isLogged";
+import currentUserReducer from "./currentUserReducer";
+import searchIpReducer from "./searchIpReducer";
+import searchParamsReducer from "./searchParamsReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-    isLogged: loggedReducer,
-    counter: counterReducer
+    currentUser: currentUserReducer,
+    searchIP: searchIpReducer,
+    searchParams: searchParamsReducer
 })
 
 export default rootReducer;

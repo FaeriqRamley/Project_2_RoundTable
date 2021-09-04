@@ -1,7 +1,17 @@
-export const increment = (inputNum=1) => {
+export const addSearchParams = (searchParams) => {
+
+    const paramSplit = searchParams.split("|");
+    let searchObj = {};
+    for (const param of paramSplit){
+        const searchKey = param.split("=")[0];
+        const searchValue = param.split("=")[1];
+
+        searchObj[searchKey] = searchValue;
+    }
+    console.log("dispatching",searchObj);
     return {
-        type: "INCREMENT",
-        payload: inputNum
+        type: "UPDATE_SEARCH_PARAMS",
+        payload: searchObj
     }
 }
 
