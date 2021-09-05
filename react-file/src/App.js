@@ -1,12 +1,20 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Switch,Route,Link } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import ArticlePage from "./pages/ArticlePage";
 import ProfilePage from "./pages/ProfilePage";
+import {useSelector,useDispatch} from 'react-redux';
+import {updateNewsKey,updateIPKey} from "./actions";
 
 function App() {
   const geoApiKey = "cb69a240275841eaa61cc32b842c7924";
   const newsApiKey = "dba1b96e6cc24cb98d29ed09f8bd10ae";
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateNewsKey(newsApiKey))
+    dispatch(updateIPKey(geoApiKey))
+  }, [])
 
   return (
     <div>
