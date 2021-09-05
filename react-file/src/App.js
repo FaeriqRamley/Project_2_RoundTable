@@ -1,7 +1,8 @@
 import React from "react";
-import SearchOption from "./components/SearchOption";
-import LocationOption from "./components/LocationOption";
-import PublisherOption from "./components/PublisherOption";
+import { Switch,Route,Link } from "react-router-dom";
+import SearchPage from "./pages/SearchPage";
+import ArticlePage from "./pages/ArticlePage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   const geoApiKey = "cb69a240275841eaa61cc32b842c7924";
@@ -9,12 +10,17 @@ function App() {
 
   return (
     <div>
-      <h1>Search Bar</h1>
-      <SearchOption newsApiKey={newsApiKey}/>
-      <h1>Location Display</h1>
-      <LocationOption geoApiKey={geoApiKey}/>
-      <h1>Article Select</h1>
-      <PublisherOption />
+      <h1>Temporary Nav</h1>
+      <div>
+        <Link to="/">Search</Link>
+        <Link to="/articles">To Articles</Link>
+        <Link to="/profile">To Profile</Link>
+      </div>
+      <Switch>
+        <Route exact path="/" component={SearchPage}/>
+        <Route path="/articles" component={ArticlePage}/>
+        <Route path="/profile" component={ProfilePage}/>
+      </Switch>
     </div>
   );
 }
