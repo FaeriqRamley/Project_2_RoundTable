@@ -15,27 +15,20 @@ export const updateIPKey = (inputKey) => {
 
 export const addSearchParams = (searchParams) => {
     return {
-        type: "UPDATE_SEARCH_PARAMS",
+        type: "ADD_SEARCH_PARAMS",
         payload: searchParams
     }
 }
 
-export const updateSearchCountry = (data) => {
+export const clearSearchParams = (searchParams) => {
     return {
-        type: "UPDATE_SEARCH_COUNTRY",
-        payload: data
+        type: "CLEAR_SEARCH_PARAMS",
     }
 }
 
-export const updateNewsData = (data) => {
+export const updateNewsData = (articleArr) => {
     return {
         type: "UPDATE_NEWS_DATA",
-        payload: data
-    }
-}
-
-export const clearNewsData = (data) => {
-    return {
-        type: "CLEAR_NEWS_DATA"
+        payload: articleArr
     }
 }
