@@ -281,8 +281,8 @@ function App() {
 
   return (
     <div>
-      <h1>Temporary Nav</h1>
       <div>
+        <span>Temporary Nav</span>
         <Link to="/">Search</Link>
         <Link to="/articles">To Articles</Link>
         <Link to="/profile">To Profile</Link>

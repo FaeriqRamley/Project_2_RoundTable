@@ -1,0 +1,7 @@
+.menu{
+    overflow: hidden;
+}
+.menu button{
+    margin:1px;
+    width:95%;
+}
