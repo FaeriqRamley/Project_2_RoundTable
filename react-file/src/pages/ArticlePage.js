@@ -1,6 +1,7 @@
 import React from 'react';
 import ArticleNav from '../components/ArticlePage/ArticleNav';
 import ButtonMenu from '../components/ArticlePage/ButtonMenu';
+import CommentDisplay from '../components/ArticlePage/CommentDisplay';
 import Notepad from '../components/ArticlePage/Notepad';
 
 function ArticlePage() {
@@ -18,7 +19,7 @@ function ArticlePage() {
                     </div>
                 </div>
                 <div className="col-md-6"><Notepad/></div>
-                <div className="col-md-3">Comments</div>
+                <div className="col-md-3"><CommentDisplay/></div>
             </div>
             
         </div>
