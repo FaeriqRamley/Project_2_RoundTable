@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import ReactQuill from 'react-quill';
 import "./notepad.css";
+import { useSelector } from 'react-redux';
 
 const modules = {
     toolbar: [
@@ -20,6 +21,7 @@ const formats = [
 ]
 
 function Notepad() {
+    const activeArticle = useSelector(state => state.activeArticle)
     const [notes,setNotes] = useState("");
     const handleNotes = (e) => {
         setNotes(e);
@@ -37,6 +39,7 @@ function Notepad() {
                 onChange={handleNotes}
                 value={notes}
             />
+            {activeArticle.title}
         </React.Fragment>
     )
 }
