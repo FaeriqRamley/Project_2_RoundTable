@@ -46,3 +46,18 @@ export const removePublisher = (publisher) => {
         payload: publisher
     }
 }
+
+export const updateActiveArticle = (newArticle) => {
+    return {
+        type: "UPDATE_ACTIVE_ARTICLE",
+        payload: newArticle
+    }
+}
+
+export const clearActiveArticle = (newArticle) => {
+    return {
+        type: "CLEAR_ACTIVE_ARTICLE",
+    }
+}
+
+

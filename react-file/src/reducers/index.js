@@ -4,6 +4,7 @@ import searchParamsReducer from "./searchParamsReducer";
 import newsDataReducer from "./newsDataReducer";
 import apiKeysReducer from "./apiKeysReducer";
 import selectedPublisherReducer from "./selectedPublisherReducer";
+import activeArticleReducer from "./activeArticleReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     searchParams: searchParamsReducer,
     newsData: newsDataReducer,
     apiKeys: apiKeysReducer,
-    selectedPublishers: selectedPublisherReducer
+    selectedPublishers: selectedPublisherReducer,
+    activeArticle: activeArticleReducer
 })
 
 export default rootReducer;

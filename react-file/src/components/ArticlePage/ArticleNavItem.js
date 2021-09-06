@@ -1,38 +1,20 @@
-import React from 'react'
+import React from 'react';
+import {useDispatch} from 'react-redux';
+import { updateActiveArticle } from '../../actions';
 
 function ArticleNavItem(props) {
-    const publisherNoSpace = props.publisher.replaceAll(" ","")
-    return (
-        <div className="accordion-item">
-            <h2 className="accordion-header" id={`heading${publisherNoSpace}`}>
-                <button
-                    className="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target={`#${publisherNoSpace}`}
-                    aria-expanded="true"
-                    aria-controls={`${publisherNoSpace}`}
-                >
-                    {props.publisher}({props.articleNum})
-                </button>
-            </h2>
+    const dispatch = useDispatch();
 
-            <div
-                id={`${publisherNoSpace}`}
-                className="accordion-collapse collapse hide"
-                aria-labelledby={`heading${publisherNoSpace}`}
-                data-bs-parent="#articleNav">
-                <div className="accordion-body" style={{textAlign:"left"}}>
-                    {props.newsArr.map((article,index)=>
-                            <p key={index}>
-                                <a href={article.url} target="_blank">
-                                {article.title}
-                                </a>
-                            </p>
-                    )}
-                </div>
-            </div>
-        </div>
+    const handleClick = () => {
+        dispatch(updateActiveArticle(props.article));
+    }
+    
+    return (
+        <p>
+            <a href={props.article.url} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+            {props.article.title}
+            </a>
+        </p>
     )
 }
 

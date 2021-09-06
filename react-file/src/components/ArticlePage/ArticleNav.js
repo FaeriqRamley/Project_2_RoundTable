@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import ArticleNavItem from './ArticleNavItem';
+import ArticleNavList from './ArticleNavList';
 const ArticleNav = () => {
     const selectedPublishers = useSelector(state => state.selectedPublishers);
     const newsData = useSelector(state => state.newsData);
@@ -284,7 +284,7 @@ const ArticleNav = () => {
         <div className="accordion" id="articleNav">
             {Object.entries(displayArticle).map((item,index)=>{
                 return (
-                    <ArticleNavItem
+                    <ArticleNavList
                         key={index}
                         publisher={item[0]}
                         newsArr={item[1]}

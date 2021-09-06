@@ -22,14 +22,13 @@ const formats = [
 function Notepad() {
     const [notes,setNotes] = useState("");
     const handleNotes = (e) => {
-        console.log(e);
         setNotes(e);
     }
 
     return (
         <React.Fragment>
             <div>
-                <h2>Untitled 1</h2>
+                <h2>Take Notes</h2>
             </div>
             <ReactQuill 
                 theme="snow"
@@ -42,4 +41,4 @@ function Notepad() {
     )
 }
 
-export default Notepad
+export default Notepad;
