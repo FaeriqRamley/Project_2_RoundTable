@@ -1,9 +1,9 @@
-import React,{useState,useEffect} from 'react';
-import {useSelector} from 'react-redux';
-
-function PublisherSelect() {
-    const [publishers,setPublishers] = useState({})
-    const newsData = useSelector(state => state.newsData)
+import React from 'react'
+import {useSelector} from 'react-redux'
+import ArticleNavItem from './ArticleNavItem';
+const ArticleNav = () => {
+    const selectedPublishers = useSelector(state => state.selectedPublishers);
+    const newsData = useSelector(state => state.newsData);
     const dummyNewsData = [
         {
             "source": {
@@ -267,36 +267,27 @@ function PublisherSelect() {
         }
     ]
 
-    useEffect(()=> {
-
-        const publisherCount = {}
-
-        for (const news of newsData){
-            const name = news.source.name
-            if (typeof publisherCount[name] === "undefined"){
-                publisherCount[name] = 1;
-            } else {
-                publisherCount[name] += 1;
+    const displayArticle = {};
+    for (const news of dummyNewsData){
+        if(selectedPublishers.indexOf(news.source.name) !== -1){
+            if(typeof displayArticle[news.source.name] === "undefined"){
+                displayArticle[news.source.name] = [news];
+            }
+            else{
+                displayArticle[news.source.name].push(news);
             }
         }
+    }
 
-        setPublishers(publisherCount);
-
-    },[newsData])
-    
     return (
-        <div className="row">
-            <h5>Select Publishers to read</h5>
-            {Object.entries(publishers).map((item,index) => {
+        <div className="accordion" id="articleNav">
+            {Object.entries(displayArticle).map((item,index)=>{
                 return (
-                    <div key={index} className="col-sm-3" style={{border:"1px solid black"}}>
-                        <h5>{item[0]}</h5>
-                        <h5>{item[1]} article(s)</h5>
-                    </div>
+                    <ArticleNavItem key={index} publisher={item[0]} newsArr={item[1]}/>
                 )
             })}
         </div>
     )
 }
 
-export default PublisherSelect;
+export default ArticleNav

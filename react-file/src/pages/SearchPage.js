@@ -1,9 +1,9 @@
 import React from 'react'
-import ParamsInput from '../components/ParamsInput';
-import PublisherSelect from '../components/PublisherSelect';
-import FetchHandler from '../components/FetchHandler';
-import Footer from '../components/Footer';
-import Banner from '../components/Banner';
+import ParamsInput from '../components/search-page/ParamsInput';
+import PublisherSelect from '../components/search-page/PublisherSelect';
+import FetchHandler from '../components/search-page/FetchHandler';
+import Footer from '../components/search-page/Footer';
+import Banner from '../components/search-page/Banner';
 
 function SearchPage() {
     

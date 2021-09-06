@@ -1,7 +1,7 @@
 import React,{useRef} from 'react'
 import inputStyles from "./input.module.css"
 import {useDispatch} from 'react-redux';
-import {addSearchParams} from '../actions';
+import {addSearchParams} from '../../actions';
 function ParamsInput() {
     const keywordRef = useRef("")
     const countryRef = useRef("")

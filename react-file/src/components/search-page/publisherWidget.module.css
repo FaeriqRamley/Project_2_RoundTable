@@ -1,0 +1,19 @@
+.widgetDiv {
+    max-width: 110px;
+    border:1px solid rgba(0,0,0,0);
+    transition: all 0.25s ease-out;
+}
+
+.publisherDiv {
+    color:red;
+    font-size:0.7em;
+}
+.articleDiv {
+    font-size: 0.65em;
+}
+.selected {
+    transition: all 0.2s ease-in;
+    border:1px solid black;
+    border-radius: 0.2rem;
+    background-color: rgba(0,0,0,0.1);
+}

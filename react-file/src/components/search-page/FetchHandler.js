@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
-import {updateNewsData} from "../actions";
+import {updateNewsData} from "../../actions";
 
 function FetchHandler() {
     const searchParams = useSelector(state => state.searchParams)
@@ -31,7 +31,6 @@ function FetchHandler() {
                 console.log(err.message)
             }
         }
-
     
         //ensure that fetchNews only runs if at least one of the entry is empty
         for (const value of Object.values(searchParams)){

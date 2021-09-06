@@ -32,3 +32,17 @@ export const updateNewsData = (articleArr) => {
         payload: articleArr
     }
 }
+
+export const addPublisher = (publisher) => {
+    return {
+        type: "ADD_PUBLISHER",
+        payload: publisher
+    }
+}
+
+export const removePublisher = (publisher) => {
+    return {
+        type: "REMOVE_PUBLISHER",
+        payload: publisher
+    }
+}
