@@ -4,9 +4,9 @@ import ArticleNav from '../components/ArticlePage/ArticleNav';
 function ArticlePage() {
     return (
         <div className="container">
-            <div className="row" style={{textAlign:'center',border:"1px solid black",height:"95vh"}}>
+            <div className="row py-2" style={{textAlign:'center',border:"1px solid black",height:"95vh"}}>
                 <div className="col-md-3">
-                    <div className="container h-100">
+                    <div className="container h-100 px-0">
                         <div className="row h-75">
                             <div className="col"><ArticleNav/></div>
                         </div>

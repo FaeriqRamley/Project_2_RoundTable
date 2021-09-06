@@ -268,6 +268,7 @@ const ArticleNav = () => {
     ]
 
     const displayArticle = {};
+    //** change to newsData once done
     for (const news of dummyNewsData){
         if(selectedPublishers.indexOf(news.source.name) !== -1){
             if(typeof displayArticle[news.source.name] === "undefined"){
@@ -283,7 +284,12 @@ const ArticleNav = () => {
         <div className="accordion" id="articleNav">
             {Object.entries(displayArticle).map((item,index)=>{
                 return (
-                    <ArticleNavItem key={index} publisher={item[0]} newsArr={item[1]}/>
+                    <ArticleNavItem
+                        key={index}
+                        publisher={item[0]}
+                        newsArr={item[1]}
+                        articleNum={item[1].length}
+                    />
                 )
             })}
         </div>
