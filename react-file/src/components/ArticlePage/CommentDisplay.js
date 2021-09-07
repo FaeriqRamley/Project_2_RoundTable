@@ -22,22 +22,22 @@ function CommentDisplay() {
 
     useEffect(()=>{
         const unsubscribe = onSnapshot(collection(db,"comments"), (snapshot) => {
-            snapshot.docChanges().forEach((change) => {
+            snapshot.docChanges().forEach( async (change) => {
                 switch(change.type){
                     case "added":
                         console.log("added item")
                         const lastId = snapshot.docChanges()[snapshot.docChanges().length-1].doc.id;
                         if(change.doc.id===lastId){
-                            setChangeUpdater(change.doc.data());
+                            await setChangeUpdater(change.doc.data());
                         }
                         break;
                     case "modified":
                         console.log("modified Item")
-                        setChangeUpdater(change.doc.data());
+                        await setChangeUpdater(change.doc.data());
                         break;
                     case "removed":
                         console.log("removed Item")
-                        setChangeUpdater(change.doc.data());
+                        await setChangeUpdater(change.doc.data());
                         break;
                     default:
                         break;
