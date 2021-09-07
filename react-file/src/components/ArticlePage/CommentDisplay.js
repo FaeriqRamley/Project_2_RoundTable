@@ -7,63 +7,69 @@ import {collection,query,where,getDocs,onSnapshot} from 'firebase/firestore';
 
 function CommentDisplay() {
     const [commentList,setCommentList] = useState([]);
-    const [changeUpdater,setChangeUpdater] = useState("");
+    const [changeUpdater,setChangeUpdater] = useState(false);
+    const [mountedSnapshot,setMountedSnapshot] = useState(false);
     const activeArticle = useSelector(state => state.activeArticle);
 
     //fetch data to display in the comment section
-    const fetchData = async (title) => {
-        setCommentList([]);
-        const commentQuery = query(collection(db,"comments"), where("article","==",title))
-        const querySnapshot = await getDocs(commentQuery);
-        querySnapshot.forEach((doc) => {
-            setCommentList(prevState => [...prevState,doc.data()])
-        }
-    )}
+    // const fetchData = async (title) => {
+    //     console.log("fetching")
+    //     setCommentList([]);
+    //     const commentQuery = query(collection(db,"comments"), where("article","==",title))
+    //     const querySnapshot = await getDocs(commentQuery);
+    //     querySnapshot.forEach((doc) => {
+    //         setCommentList(prevState => [...prevState,doc.data()])
+    //     })
+    // }
 
-    useEffect(()=>{
-        const unsubscribe = onSnapshot(collection(db,"comments"), (snapshot) => {
-            snapshot.docChanges().forEach( async (change) => {
+    const createSnapshot = (inputQuery) => {
+        setCommentList([]);
+        const unsubscribe = onSnapshot(inputQuery, (snapshot) => {
+            snapshot.docChanges().forEach((change,index) => {
                 switch(change.type){
                     case "added":
-                        console.log("added item")
-                        const lastId = snapshot.docChanges()[snapshot.docChanges().length-1].doc.id;
-                        if(change.doc.id===lastId){
-                            await setChangeUpdater(change.doc.data());
-                        }
+                        setCommentList(prevState => [...prevState,change.doc.data()])
                         break;
                     case "modified":
                         console.log("modified Item")
-                        await setChangeUpdater(change.doc.data());
+                        setChangeUpdater(true);
                         break;
                     case "removed":
                         console.log("removed Item")
-                        await setChangeUpdater(change.doc.data());
+                        setChangeUpdater(true);
                         break;
                     default:
                         break;
                 }
             })
         })
-    },[])
+    }
 
+    // useEffect(()=>{})
+
+    let commentQuery = collection(db,"comments");
     useEffect(()=>{
         if (JSON.stringify(activeArticle) !== "{}"){
-            fetchData(activeArticle.title);
+            commentQuery = query(collection(db,"comments"), where("article","==",activeArticle.title))
         }
     },[activeArticle])
 
-    useEffect(()=>{
-        console.log("changeUpdater running");
-        if (JSON.stringify(activeArticle) !== "{}"){
-            fetchData(activeArticle.title);
-        }
-    },[changeUpdater])
+    // useEffect(()=>{
+    //     if (changeUpdater === true && JSON.stringify(activeArticle) !== "{}"){
+    //         console.log("Changeupdaterdetected")
+    //         fetchData(activeArticle.title);
+    //         setChangeUpdater(false);
+    //     }
+    //     // console.log(mountedSnapshot);
+    // },[changeUpdater])
 
+    
     return (
         <div className="container h-100" style={{border:"1px solid black"}}>
             <div className="row">Comments</div>
             <Comments commentList={commentList}/>
             <CommentBox/>
+            <button onClick={()=> createSnapshot(commentQuery)}>Clicker</button>
         </div>
     )
 }

@@ -20,7 +20,6 @@ function CommentBox() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const newComment = {
             userName: usernameRef.current.value,
             article: activeArticle.title,
@@ -31,6 +30,7 @@ function CommentBox() {
                 upvotes: 0
             },
         }
+        
         if(newComment.content.length !== 0){
             addDataToCommentsDb(newComment)
             usernameRef.current.value = "";
