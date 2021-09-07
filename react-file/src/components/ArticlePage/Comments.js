@@ -1,14 +1,13 @@
 import React from 'react'
 
 function Comments(props) {
-    console.log(props.commentList);
     return (
         <React.Fragment>
             {props.commentList.map((item,index) => {
                 return(
-                    <div style={{border:"2px dotted red"}}>
-                        <h4>{item.userName}</h4>
-                        <h5>{item.content}</h5>
+                    <div className="row" key={index} style={{border:"2px dotted red",textAlign:"left"}}>
+                        <div><strong>{item.userName}</strong></div>
+                        <div>{item.content}</div>
                     </div>
                 )
                 

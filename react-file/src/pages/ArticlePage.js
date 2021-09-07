@@ -5,6 +5,7 @@ import CommentDisplay from '../components/ArticlePage/CommentDisplay';
 import Notepad from '../components/ArticlePage/Notepad';
 
 function ArticlePage() {
+
     return (
         <div className="container">
             <div className="row py-2" style={{textAlign:'center',border:"1px solid black",minHeight:"95vh"}}>
@@ -21,7 +22,6 @@ function ArticlePage() {
                 <div className="col-md-6"><Notepad/></div>
                 <div className="col-md-3"><CommentDisplay/></div>
             </div>
-            
         </div>
     )
 }
