@@ -54,10 +54,32 @@ export const updateActiveArticle = (newArticle) => {
     }
 }
 
+export const addComment = (newComment) => {
+    return {
+        type: "ADD_COMMENT",
+        payload: newComment
+    }
+}
+
+export const clearComments = () => {
+    return {
+        type: "CLEAR_COMMENTS",
+    }
+}
+
+export const removeComment= (commentID) => {
+    return {
+        type: "REMOVE_COMMENT",
+        payload: commentID
+    }
+}
+
 export const clearActiveArticle = (newArticle) => {
     return {
         type: "CLEAR_ACTIVE_ARTICLE",
     }
 }
+
+
 
 
