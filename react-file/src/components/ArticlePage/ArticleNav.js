@@ -1,10 +1,11 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
+import React,{useState} from 'react';
+import {useSelector} from 'react-redux';
 import ArticleNavList from './ArticleNavList';
 
 const ArticleNav = () => {
     const selectedPublishers = useSelector(state => state.selectedPublishers);
     const newsData = useSelector(state => state.newsData);
+    const [listener,setListener] = useState();
     const dummyNewsData = [
         {
             "source": {
@@ -290,6 +291,8 @@ const ArticleNav = () => {
                         publisher={item[0]}
                         newsArr={item[1]}
                         articleNum={item[1].length}
+                        listener={listener}
+                        setListener={setListener}
                     />
                 )
             })}

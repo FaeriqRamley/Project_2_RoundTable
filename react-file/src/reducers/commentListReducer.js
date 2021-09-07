@@ -3,7 +3,7 @@ const commentList = (state=[],action) => {
         case "ADD_COMMENT":
             return [...state, action.payload];
         case "REMOVE_COMMENT":
-            return commentList.filter((item) => item.docID !== action.payload);
+            return state.filter((item) => item.docID !== action.payload);
         case "CLEAR_COMMENTS":
             return [];
         default:

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ArticleNavItem from './ArticleNavItem';
 
 function ArticleNavList(props) {
@@ -25,7 +25,7 @@ function ArticleNavList(props) {
                 data-bs-parent="#articleNav">
                 <div className="accordion-body" style={{textAlign:"left"}}>
                     {props.newsArr.map((article,index)=>
-                        <ArticleNavItem key={index} article={article}/>
+                        <ArticleNavItem key={index} article={article} listener={props.listener} setListener={props.setListener}/>
                     )}
                 </div>
             </div>

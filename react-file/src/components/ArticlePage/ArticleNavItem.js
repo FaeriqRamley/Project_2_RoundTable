@@ -1,17 +1,17 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {useSelector,useDispatch} from 'react-redux';
-import { updateActiveArticle,addComment,removeComment,clearComments } from '../../actions';
+import { updateActiveArticle,addComment,removeComment,clearComments, setListener } from '../../actions';
 import db from '../../firebase';
 import {collection,query,where,getDocs,onSnapshot} from 'firebase/firestore';
 
 function ArticleNavItem(props) {
     const activeArticle = useSelector(state => state.activeArticle)
+    const databaseListener = useSelector(state => state.databaseListener)
     const dispatch = useDispatch();
-    const [listener,setListener] = useState();
 
     const createSnapshot = (inputQuery) => {
-        if(listener){
-            listener();
+        if(props.listener){
+            props.listener();
         }
 
         dispatch(clearComments());
@@ -35,7 +35,8 @@ function ArticleNavItem(props) {
                 }
             })
         })
-        setListener(()=>unsubscribe);
+
+        props.setListener(()=>unsubscribe);
     }
 
     const handleClick = () => {
