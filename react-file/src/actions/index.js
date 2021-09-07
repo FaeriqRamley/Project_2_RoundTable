@@ -79,17 +79,3 @@ export const clearActiveArticle = (newArticle) => {
         type: "CLEAR_ACTIVE_ARTICLE",
     }
 }
-
-export const setListener = (newfunc) => {
-    return {
-        type: "SET_LISTENER",
-        payload: newfunc
-    }
-}
-
-export const clearListener = () => {
-    return {
-        type: "CLEAR_LISTENER",
-    }
-}
-

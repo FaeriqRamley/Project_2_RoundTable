@@ -6,7 +6,6 @@ import apiKeysReducer from "./apiKeysReducer";
 import selectedPublisherReducer from "./selectedPublisherReducer";
 import activeArticleReducer from "./activeArticleReducer";
 import commentListReducer from "./commentListReducer";
-import databaseListenerReducer from "./databaseListenerReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -18,7 +17,6 @@ const rootReducer = combineReducers({
     selectedPublishers: selectedPublisherReducer,
     activeArticle: activeArticleReducer,
     commentList: commentListReducer,
-    databaseListener: databaseListenerReducer
 })
 
 export default rootReducer;

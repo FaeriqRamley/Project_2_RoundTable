@@ -2,11 +2,10 @@ import React from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import { updateActiveArticle,addComment,removeComment,clearComments, setListener } from '../../actions';
 import db from '../../firebase';
-import {collection,query,where,getDocs,onSnapshot} from 'firebase/firestore';
+import {collection,query,where,onSnapshot} from 'firebase/firestore';
 
 function ArticleNavItem(props) {
     const activeArticle = useSelector(state => state.activeArticle)
-    const databaseListener = useSelector(state => state.databaseListener)
     const dispatch = useDispatch();
 
     const createSnapshot = (inputQuery) => {
@@ -16,7 +15,7 @@ function ArticleNavItem(props) {
 
         dispatch(clearComments());
         const unsubscribe = onSnapshot(inputQuery, (snapshot) => {
-            snapshot.docChanges().forEach((change,index) => {
+            snapshot.docChanges().forEach((change) => {
                 switch(change.type){
                     case "added":
                         const newComment = change.doc.data()

@@ -1,8 +1,8 @@
 import React from 'react';
-import ArticleNav from '../components/ArticlePage/ArticleNav';
-import ButtonMenu from '../components/ArticlePage/ButtonMenu';
-import CommentDisplay from '../components/ArticlePage/CommentDisplay';
-import Notepad from '../components/ArticlePage/Notepad';
+import ArticleNav from '../components/article-page/ArticleNav';
+import ButtonMenu from '../components/article-page/ButtonMenu';
+import CommentDisplay from '../components/article-page/CommentDisplay';
+import Notepad from '../components/article-page/Notepad';
 
 function ArticlePage() {
 
