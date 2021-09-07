@@ -2,13 +2,9 @@ import React,{useState,useEffect} from 'react'
 import Comments from './Comments';
 import CommentBox from './CommentBox';
 import {useSelector} from 'react-redux';
-import db from '../../firebase';
-import {collection,query,where,getDocs,onSnapshot} from 'firebase/firestore';
 
 function CommentDisplay() {
     const [commentList,setCommentList] = useState([]);
-    const [changeUpdater,setChangeUpdater] = useState(false);
-    const [mountedSnapshot,setMountedSnapshot] = useState(false);
     const activeArticle = useSelector(state => state.activeArticle);
 
     //fetch data to display in the comment section
@@ -21,38 +17,6 @@ function CommentDisplay() {
     //         setCommentList(prevState => [...prevState,doc.data()])
     //     })
     // }
-
-    const createSnapshot = (inputQuery) => {
-        setCommentList([]);
-        const unsubscribe = onSnapshot(inputQuery, (snapshot) => {
-            snapshot.docChanges().forEach((change,index) => {
-                switch(change.type){
-                    case "added":
-                        setCommentList(prevState => [...prevState,change.doc.data()])
-                        break;
-                    case "modified":
-                        console.log("modified Item")
-                        setChangeUpdater(true);
-                        break;
-                    case "removed":
-                        console.log("removed Item")
-                        setChangeUpdater(true);
-                        break;
-                    default:
-                        break;
-                }
-            })
-        })
-    }
-
-    // useEffect(()=>{})
-
-    let commentQuery = collection(db,"comments");
-    useEffect(()=>{
-        if (JSON.stringify(activeArticle) !== "{}"){
-            commentQuery = query(collection(db,"comments"), where("article","==",activeArticle.title))
-        }
-    },[activeArticle])
 
     // useEffect(()=>{
     //     if (changeUpdater === true && JSON.stringify(activeArticle) !== "{}"){
@@ -69,7 +33,6 @@ function CommentDisplay() {
             <div className="row">Comments</div>
             <Comments commentList={commentList}/>
             <CommentBox/>
-            <button onClick={()=> createSnapshot(commentQuery)}>Clicker</button>
         </div>
     )
 }

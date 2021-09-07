@@ -1,11 +1,10 @@
 import React from 'react';
-import {useSelector,useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { updateActiveArticle,addComment,removeComment,clearComments, setListener } from '../../actions';
 import db from '../../firebase';
 import {collection,query,where,onSnapshot} from 'firebase/firestore';
 
 function ArticleNavItem(props) {
-    const activeArticle = useSelector(state => state.activeArticle)
     const dispatch = useDispatch();
 
     const createSnapshot = (inputQuery) => {

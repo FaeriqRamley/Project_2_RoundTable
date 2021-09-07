@@ -27,19 +27,33 @@ function Notepad() {
         setNotes(e);
     }
 
+    const saveNotes = (e) => {
+        e.preventDefault();
+        console.log(notes);
+    }
     return (
         <React.Fragment>
-            <div>
+            <div className="row">
+                <h5>{activeArticle.title}</h5>
+            </div>
+            
+            <div className="row">
                 <h2>Take Notes</h2>
             </div>
-            <ReactQuill 
+            <div className="row" style={{height:"60%",overflow:'auto'}}>
+                <ReactQuill 
                 theme="snow"
                 modules={modules}
                 formats={formats}
                 onChange={handleNotes}
                 value={notes}
-            />
-            {activeArticle.title}
+                />
+            </div>
+            <div className="row">
+                <button onClick={saveNotes}>Save Notes</button>
+                <button>Load Notes</button>
+            </div>
+            
         </React.Fragment>
     )
 }

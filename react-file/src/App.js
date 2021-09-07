@@ -5,6 +5,7 @@ import ArticlePage from "./pages/ArticlePage";
 import ProfilePage from "./pages/ProfilePage";
 import {useDispatch} from 'react-redux';
 import {updateNewsKey,updateIPKey} from "./actions";
+import LoginPage from "./pages/LoginPage";
 
 const dummyNewsData = [
   {
@@ -281,16 +282,18 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div style={{position:"sticky",top:"0",textAlign:"center",backgroundColor:"lightblue",zIndex:"1"}}>
+        <span><Link to="/">Search</Link></span>
+        <span><Link to="/articles">To Articles</Link></span>
         <span>Temporary Nav</span>
-        <Link to="/">Search</Link>
-        <Link to="/articles">To Articles</Link>
-        <Link to="/profile">To Profile</Link>
+        <span><Link to="/profile">To Profile</Link></span>
+        <span><Link to="/login">To Login</Link></span>
       </div>
       <Switch>
         <Route exact path="/" component={SearchPage}/>
         <Route path="/articles" component={ArticlePage}/>
         <Route path="/profile" component={ProfilePage}/>
+        <Route path="/login" component={LoginPage}/>
       </Switch>
     </div>
   );
