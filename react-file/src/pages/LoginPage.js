@@ -1,6 +1,7 @@
 import React,{useState,useRef} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import db from '../firebase';
 function LoginPage() {
     const currentUser = useSelector(state => state.currentUser)
     const dispatch = useDispatch();
@@ -25,7 +26,8 @@ function LoginPage() {
         if (login){
             signInWithEmailAndPassword(auth,emailRef.current.value).then(
                 (userCredentials) => {
-                    console.log(userCredentials.user)
+                    console.log(userCredentials.user);
+                    console.log(userCredentials.user.uid);
                 }
             ).catch(
                 (error) => {
@@ -76,6 +78,7 @@ function LoginPage() {
                 <div><button type="submit">{login ? "Login":"Sign Up"}</button></div>
                 <div><button onClick={toggleMode}>{login ? "Sign Up":"Already have an account"}</button></div>
             </form>
+            {JSON.stringify(auth.currentUser)}
         </div>
     )
 }
