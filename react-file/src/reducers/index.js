@@ -1,9 +1,9 @@
-import currentUserReducer from "./firebase-reducers/currentUserReducer";
-import searchParamsReducer from "./appfunction-reducers/searchParamsReducer";
-import newsDataReducer from "./api-reducers/newsDataReducer";
 import apiKeysReducer from "./api-reducers/apiKeysReducer";
+import newsDataReducer from "./api-reducers/newsDataReducer";
+import searchParamsReducer from "./appfunction-reducers/searchParamsReducer";
 import selectedPublisherReducer from "./appfunction-reducers/selectedPublisherReducer";
 import activeArticleReducer from "./appfunction-reducers/activeArticleReducer";
+import currentUserReducer from "./firebase-reducers/currentUserReducer";
 import commentListReducer from "./firebase-reducers/commentListReducer";
 import currentUserStorageReducer from './firebase-reducers/currentUserStorageReducer';
 import { combineReducers } from "redux";

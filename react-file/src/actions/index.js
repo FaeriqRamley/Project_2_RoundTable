@@ -50,7 +50,7 @@ export const addUserNotes = (newNote) => {
     }
 }
 
-//// SEARCH PARAMS ACTIONS HERE
+//// SEARCHPARAMS ACTIONS HERE
 export const addSearchParams = (searchParams) => {
     return {
         type: "ADD_SEARCH_PARAMS",
@@ -96,7 +96,7 @@ export const updateActiveArticle = (newArticle) => {
 }
 
 
-export const clearActiveArticle = (newArticle) => {
+export const clearActiveArticle = () => {
     return {
         type: "CLEAR_ACTIVE_ARTICLE",
     }
