@@ -4,6 +4,7 @@ import PublisherSelect from '../components/search-page/PublisherSelect';
 import FetchHandler from '../components/search-page/FetchHandler';
 import Footer from '../components/search-page/Footer';
 import Banner from '../components/search-page/Banner';
+import styles from './searchPage.module.css';
 
 const quote = {quote:"The greatest tragedy for any human being is going through their entire lives believing the only perspective that matters is their own.", author:"Doug Baldwin"}
 
