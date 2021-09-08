@@ -54,6 +54,7 @@ function LoginPage() {
             if (error === ""){
                 createUserWithEmailAndPassword(auth,emailRef.current.value,passwordRef.current.value).then(
                     async (userCredentials) => {
+                        //Initialize userCredentials
                         await setDoc(doc(db,"userStorage",userCredentials.user.uid),{
                             articleFavourite: [],
                             noteStorage: []

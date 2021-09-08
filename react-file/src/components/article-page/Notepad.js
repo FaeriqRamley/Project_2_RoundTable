@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import ReactQuill from 'react-quill';
 import "./notepad.css";
 import { useSelector } from 'react-redux';
+import db from '../../firebase';
+import {doc,updateDoc} from 'firebase/firestore';
 
 const modules = {
     toolbar: [
