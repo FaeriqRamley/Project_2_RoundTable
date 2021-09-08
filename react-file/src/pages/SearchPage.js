@@ -11,15 +11,16 @@ const quote = {quote:"The greatest tragedy for any human being is going through 
 function SearchPage() {
     
     return (
-        <div className="container">
+        <div className={`container-fluid ${styles.mainContainer}`}>
             <FetchHandler/>
-            <div className="row centered" style={{backgroundColor:"blue",color:"white"}}><Banner/></div>
             <div className="row">
+                <div className="col centered">
+                    <img src="./RoundTable_logo_nobg.png" width="200px" alt="RoundTable Logo"/>
+                </div>
+            </div>
+            <div className={`row ${styles.searchBar}`}>
                 <div className="col-md-4" style={{border:"1px solid black"}}><ParamsInput/></div>
                 <div className="col-md-8" style={{textAlign:"center",border:"1px solid black"}}><PublisherSelect/></div>
-            </div>
-            <div className="row centered" style={{backgroundColor:"black",color:"white"}}>
-                <Footer/>
             </div>
         </div>
     )

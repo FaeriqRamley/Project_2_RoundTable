@@ -3,6 +3,7 @@ import { Switch,Route,Link } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import ArticlePage from "./pages/ArticlePage";
 import ProfilePage from "./pages/ProfilePage";
+import Footer from "./components/search-page/Footer";
 import {useSelector,useDispatch} from 'react-redux';
 import {updateNewsKey,addUser,removeUser} from "./actions";
 import LoginPage from "./pages/LoginPage";
@@ -297,20 +298,28 @@ function App() {
 
   return (
     <div>
-      <div style={{position:"sticky",top:"0",textAlign:"center",backgroundColor:"lightblue",zIndex:"1"}}>
-        <span><Link to="/">Search</Link></span>
-        <span><Link to="/articles">To Articles</Link></span>
-        <span>Temporary Nav</span>
-        <span><Link to="/profile">To Profile</Link></span>
-        {currentUser ? <button onClick={handleSignOut}>Sign out</button>:<span><Link to="/login">To Login</Link></span>}
+        <div style={{position:"sticky",top:"0",textAlign:"center",backgroundColor:"lightblue",zIndex:"1"}}>
+            <span><Link to="/">Search</Link></span>
+            <span><Link to="/articles">To Articles</Link></span>
+            <span>Temporary Nav</span>
+            <span><Link to="/profile">To Profile</Link></span>
+            {currentUser ? <button onClick={handleSignOut}>Sign out</button>:<span><Link to="/login">To Login</Link></span>}
+        </div>
+      <div className="container-fluid">
+        <div className="row">
+            <Switch>
+                <Route exact path="/" component={SearchPage}/>
+                <Route path="/articles" component={ArticlePage}/>
+                <Route path="/profile" component={ProfilePage}/>
+                <Route path="/login" component={LoginPage}/>
+            </Switch>
+        </div>
+        <div className="row">
+            <Footer/>
+        </div>
         
-      </div>
-      <Switch>
-        <Route exact path="/" component={SearchPage}/>
-        <Route path="/articles" component={ArticlePage}/>
-        <Route path="/profile" component={ProfilePage}/>
-        <Route path="/login" component={LoginPage}/>
-      </Switch>
+        </div>
+      
     </div>
   );
 }
