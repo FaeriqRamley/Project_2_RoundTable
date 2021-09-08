@@ -3,11 +3,11 @@ import {useSelector,useDispatch} from 'react-redux';
 import { useHistory } from 'react-router';
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import db from '../firebase';
-import {collection,doc,setDoc,getDoc} from 'firebase/firestore';
+import {doc,setDoc} from 'firebase/firestore';
 import {updateUserStorage} from '../actions'
 function LoginPage() {
     const currentUser = useSelector(state => state.currentUser)
-    const currentUserStorage = useSelector(state => state.currentUserStorage)
+    // const currentUserStorage = useSelector(state => state.currentUserStorage)
     const dispatch = useDispatch();
     const [login,toggleLogin] = useState(true);
     const [error,setError] = useState("");
@@ -32,9 +32,6 @@ function LoginPage() {
             signInWithEmailAndPassword(auth,emailRef.current.value,passwordRef.current.value).then(
                 async (userCredentials) => {
                     //update user storage state
-                    const docSnap = await getDoc(doc(db,"userStorage",userCredentials.user.uid));
-                    dispatch(updateUserStorage(docSnap.data()))
-
                     //clear fields and move to other page
                     emailRef.current.value = ""
                     passwordRef.current.value = ""
