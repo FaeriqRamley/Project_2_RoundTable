@@ -13,6 +13,40 @@ export const updateIPKey = (inputKey) => {
     }
 }
 
+export const addUser = (userInfo) => {
+    return {
+        type: "ADD_USER",
+        payload: userInfo
+    }
+}
+
+export const removeUser = (inputKey) => {
+    return {
+        type: "REMOVE_USER",
+    }
+}
+
+export const updateUserStorage = (payload) => {
+    return {
+        type: "UPDATE_USER_STORAGE",
+        payload
+    }
+}
+
+export const addUserFavourites = (newUrl) => {
+    return {
+        type: "ADD_USER_FAVOURITES",
+        payload: newUrl
+    }
+}
+
+export const addUserNotes = (newNote) => {
+    return {
+        type: "ADD_NOTE_STORAGE",
+        payload: newNote
+    }
+}
+
 export const addSearchParams = (searchParams) => {
     return {
         type: "ADD_SEARCH_PARAMS",

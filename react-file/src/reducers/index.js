@@ -6,10 +6,12 @@ import apiKeysReducer from "./apiKeysReducer";
 import selectedPublisherReducer from "./selectedPublisherReducer";
 import activeArticleReducer from "./activeArticleReducer";
 import commentListReducer from "./commentListReducer";
+import currentUserStorageReducer from './currentUserStorageReducer';
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
+    currentUserStorage: currentUserStorageReducer,
     searchCountry: searchCountryReducer,
     searchParams: searchParamsReducer,
     newsData: newsDataReducer,
@@ -17,6 +19,7 @@ const rootReducer = combineReducers({
     selectedPublishers: selectedPublisherReducer,
     activeArticle: activeArticleReducer,
     commentList: commentListReducer,
+    
 })
 
 export default rootReducer;

@@ -1,13 +1,18 @@
 import React,{useState,useRef} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
+import { useHistory } from 'react-router';
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import db from '../firebase';
+import {collection,doc,setDoc,getDoc} from 'firebase/firestore';
+import {updateUserStorage} from '../actions'
 function LoginPage() {
     const currentUser = useSelector(state => state.currentUser)
+    const currentUserStorage = useSelector(state => state.currentUserStorage)
     const dispatch = useDispatch();
     const [login,toggleLogin] = useState(true);
     const [error,setError] = useState("");
     const auth = getAuth();
+    let history = useHistory();
 
     const usernameRef = useRef();
     const emailRef = useRef();
@@ -24,10 +29,16 @@ function LoginPage() {
         setError("")
         e.preventDefault();
         if (login){
-            signInWithEmailAndPassword(auth,emailRef.current.value).then(
-                (userCredentials) => {
-                    console.log(userCredentials.user);
-                    console.log(userCredentials.user.uid);
+            signInWithEmailAndPassword(auth,emailRef.current.value,passwordRef.current.value).then(
+                async (userCredentials) => {
+                    //update user storage state
+                    const docSnap = await getDoc(doc(db,"userStorage",userCredentials.user.uid));
+                    dispatch(updateUserStorage(docSnap.data()))
+
+                    //clear fields and move to other page
+                    emailRef.current.value = ""
+                    passwordRef.current.value = ""
+                    history.push("/")
                 }
             ).catch(
                 (error) => {
@@ -45,7 +56,11 @@ function LoginPage() {
 
             if (error === ""){
                 createUserWithEmailAndPassword(auth,emailRef.current.value,passwordRef.current.value).then(
-                    (userCredentials) => {
+                    async (userCredentials) => {
+                        await setDoc(doc(db,"userStorage",userCredentials.user.uid),{
+                            articleFavourite: [],
+                            noteStorage: []
+                        })
                         console.log(userCredentials)
                     }
                 ). catch((error) => {
@@ -79,6 +94,8 @@ function LoginPage() {
                 <div><button onClick={toggleMode}>{login ? "Sign Up":"Already have an account"}</button></div>
             </form>
             {JSON.stringify(auth.currentUser)}
+            <h6>current user state:</h6>
+            {currentUser? currentUser.uid:""}
         </div>
     )
 }
