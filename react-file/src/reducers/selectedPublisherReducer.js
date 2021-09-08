@@ -7,6 +7,8 @@ const selectedPublisherReducer = (state=[],action) => {
             const publisherInd = newState.indexOf(action.payload);
             newState.splice(publisherInd,1);
             return newState;
+        case "CLEAR_ALL_PUBLISHERS":
+            return [];
         default:
             return state;
     }

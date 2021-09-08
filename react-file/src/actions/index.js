@@ -1,3 +1,4 @@
+//// API KEY ACTIONS HERE
 export const updateNewsKey = (inputKey) => {
     return {
         type: "UPDATE_NEWS_KEY",
@@ -5,14 +6,15 @@ export const updateNewsKey = (inputKey) => {
     }
 }
 
-export const updateIPKey = (inputKey) => {
-    console.log("DispatchingIPKey")
+//// NEWSDATA ACTIONS HERE
+export const updateNewsData = (articleArr) => {
     return {
-        type: "UPDATE_IP_KEY",
-        payload: inputKey
+        type: "UPDATE_NEWS_DATA",
+        payload: articleArr
     }
 }
 
+//// USER ACTIONS HERE
 export const addUser = (userInfo) => {
     return {
         type: "ADD_USER",
@@ -20,12 +22,13 @@ export const addUser = (userInfo) => {
     }
 }
 
-export const removeUser = (inputKey) => {
+export const removeUser = () => {
     return {
         type: "REMOVE_USER",
     }
 }
 
+//// USER STORAGE ACTIONS HERE
 export const updateUserStorage = (payload) => {
     return {
         type: "UPDATE_USER_STORAGE",
@@ -47,6 +50,7 @@ export const addUserNotes = (newNote) => {
     }
 }
 
+//// SEARCH PARAMS ACTIONS HERE
 export const addSearchParams = (searchParams) => {
     return {
         type: "ADD_SEARCH_PARAMS",
@@ -60,13 +64,9 @@ export const clearSearchParams = (searchParams) => {
     }
 }
 
-export const updateNewsData = (articleArr) => {
-    return {
-        type: "UPDATE_NEWS_DATA",
-        payload: articleArr
-    }
-}
 
+
+//// SELECTEDPUBLISHER ACTIONS HERE
 export const addPublisher = (publisher) => {
     return {
         type: "ADD_PUBLISHER",
@@ -81,6 +81,13 @@ export const removePublisher = (publisher) => {
     }
 }
 
+export const clearAllPublisher = () => {
+    return {
+        type: "CLEAR_ALL_PUBLISHER",
+    }
+}
+
+//// ACTIVE ARTICLE ACTIONS HERE
 export const updateActiveArticle = (newArticle) => {
     return {
         type: "UPDATE_ACTIVE_ARTICLE",
@@ -88,6 +95,14 @@ export const updateActiveArticle = (newArticle) => {
     }
 }
 
+
+export const clearActiveArticle = (newArticle) => {
+    return {
+        type: "CLEAR_ACTIVE_ARTICLE",
+    }
+}
+
+//// COMMENT LIST ACTIONS HERE
 export const addComment = (newComment) => {
     return {
         type: "ADD_COMMENT",
@@ -108,8 +123,4 @@ export const removeComment= (commentID) => {
     }
 }
 
-export const clearActiveArticle = (newArticle) => {
-    return {
-        type: "CLEAR_ACTIVE_ARTICLE",
-    }
-}
+

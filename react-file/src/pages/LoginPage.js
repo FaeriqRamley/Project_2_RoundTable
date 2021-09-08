@@ -1,14 +1,12 @@
 import React,{useState,useRef} from 'react';
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router';
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import db from '../firebase';
 import {doc,setDoc} from 'firebase/firestore';
-import {updateUserStorage} from '../actions'
+
 function LoginPage() {
     const currentUser = useSelector(state => state.currentUser)
-    // const currentUserStorage = useSelector(state => state.currentUserStorage)
-    const dispatch = useDispatch();
     const [login,toggleLogin] = useState(true);
     const [error,setError] = useState("");
     const auth = getAuth();
@@ -61,7 +59,7 @@ function LoginPage() {
                         })
                         console.log(userCredentials)
                     }
-                ). catch((error) => {
+                ).catch((error) => {
                     console.log(error.code);
                     console.log(error.message);
                 })

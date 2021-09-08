@@ -4,7 +4,7 @@ import SearchPage from "./pages/SearchPage";
 import ArticlePage from "./pages/ArticlePage";
 import ProfilePage from "./pages/ProfilePage";
 import {useSelector,useDispatch} from 'react-redux';
-import {updateNewsKey,updateIPKey,addUser,removeUser} from "./actions";
+import {updateNewsKey,addUser,removeUser} from "./actions";
 import LoginPage from "./pages/LoginPage";
 import { getAuth,signOut,onAuthStateChanged } from "@firebase/auth";
 const dummyNewsData = [
@@ -275,11 +275,9 @@ function App() {
   const currentUser = useSelector(state => state.currentUser)
   const auth = getAuth();
   
-  useEffect(() => {  
-    const geoApiKey = "cb69a240275841eaa61cc32b842c7924";
+  useEffect(() => {
     const newsApiKey = "dba1b96e6cc24cb98d29ed09f8bd10ae";
     dispatch(updateNewsKey(newsApiKey))
-    dispatch(updateIPKey(geoApiKey))
   }, [])
 
   useEffect(()=> {

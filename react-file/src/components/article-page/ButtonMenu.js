@@ -2,15 +2,16 @@ import React from 'react'
 import styles from './buttonMenu.module.css'
 import db from '../../firebase';
 import {doc,updateDoc,getDoc} from 'firebase/firestore';
-import {useSelector} from 'react-redux';
-import {getAuth} from 'firebase/auth';
+import {useSelector,useDispatch} from 'react-redux';
+import {clearActiveArticle} from '../../actions';
 import {useHistory} from 'react-router-dom';
+
 
 function ButtonMenu() {
     const activeArticle = useSelector(state => state.activeArticle);
     const currentUser = useSelector(state => state.currentUser);
     const history = useHistory();
-    
+    const dispatch = useDispatch();
 
     const addToFav = async (favArticle) => {
         const uid = currentUser.uid;
@@ -49,10 +50,13 @@ function ButtonMenu() {
 
     const handleSelectDiffSource = (e) => {
         e.preventDefault();
+        dispatch(clearActiveArticle());
+        history.push("/")
     }
 
     const handleMakeNewSearch = (e) => {
         e.preventDefault();
+        history.push("/")
     }
 
     return (
