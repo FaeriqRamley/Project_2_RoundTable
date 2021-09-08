@@ -61,8 +61,14 @@ function LoginPage() {
                         const name = (usernameRef.current.value==="") ? "Anonymous" : usernameRef.current.value 
                         updateProfile(auth.currentUser, {
                             displayName: name
-                          })
-                        history.push("/")
+                        }).then(
+                            history.push("/")
+                        ).catch(
+                            (error) => {
+                                console.log(error)
+                            }
+                        )
+                        
                     }
                 ).catch((error) => {
                     console.log(error.code);

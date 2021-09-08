@@ -8,6 +8,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import {updateNewsKey,addUser,removeUser} from "./actions";
 import LoginPage from "./pages/LoginPage";
 import { getAuth,signOut,onAuthStateChanged } from "@firebase/auth";
+import AppNav from "./components/AppNav";
 const dummyNewsData = [
   {
       "source": {
@@ -298,13 +299,14 @@ function App() {
 
   return (
     <div>
-        <div style={{position:"sticky",top:"0",textAlign:"center",backgroundColor:"lightblue",zIndex:"1"}}>
+        {/* <div style={{position:"sticky",top:"0",textAlign:"center",backgroundColor:"lightblue",zIndex:"1"}}>
             <span><Link to="/">Search</Link></span>
             <span><Link to="/articles">To Articles</Link></span>
             <span>Temporary Nav</span>
             <span><Link to="/profile">To Profile</Link></span>
             {currentUser ? <button onClick={handleSignOut}>Sign out</button>:<span><Link to="/login">To Login</Link></span>}
-        </div>
+        </div> */}
+        <AppNav/>
       <div className="container-fluid">
         <div className="row">
             <Switch>
