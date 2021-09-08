@@ -1,7 +1,7 @@
 import React,{useState,useRef} from 'react';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router';
-import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import db from '../firebase';
 import {doc,setDoc} from 'firebase/firestore';
 
@@ -58,6 +58,10 @@ function LoginPage() {
                             noteStorage: []
                         })
                         console.log(userCredentials);
+                        const name = (usernameRef.current.value==="") ? "Anonymous" : usernameRef.current.value 
+                        updateProfile(auth.currentUser, {
+                            displayName: name
+                          })
                         history.push("/")
                     }
                 ).catch((error) => {
