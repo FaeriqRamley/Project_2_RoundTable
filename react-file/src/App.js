@@ -293,6 +293,7 @@ function App() {
   const handleSignOut = (e) => {
     e.preventDefault();
     signOut(auth);
+    dispatch(removeUser())
   }
 
   return (

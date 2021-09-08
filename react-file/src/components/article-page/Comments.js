@@ -11,7 +11,6 @@ function Comments(props) {
                         <div>{item.content}</div>
                     </div>
                 )
-                
             })}
         </React.Fragment>
     )
