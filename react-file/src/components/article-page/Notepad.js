@@ -27,32 +27,48 @@ function Notepad() {
     const activeArticle = useSelector(state => state.activeArticle)
     const currentUser = useSelector(state => state.currentUser)
     const [notes,setNotes] = useState("");
-    const noteTitleRef = useRef();
-    const [showPopup,togglePopup] = useState(false);
-    const [showPopup2,togglePopup2] = useState(true);
+    const noteSaveRef = useRef();
+    const noteLoadRef = useRef();
+    const [showPopupSave,togglePopupSave] = useState(false);
+    const [showPopupLoad,togglePopupLoad] = useState(false);
     const handleNotes = (e) => {
         setNotes(e);
-    }
-
-    const onClickTogglePopup = (e) => {
-        e.preventDefault();
-        togglePopup(true);
     }
 
     const addToNoteStorage = async (newNote) => {
         const uid = currentUser.uid;
         const docSnap = await getDoc(doc(db,"userStorage",uid));
-        const newNotes = [...docSnap.data().noteStorage];
+        const newNoteStorage = [...docSnap.data().noteStorage,newNote];
         await updateDoc(doc(db,"userStorage",uid),{
-            noteStorage: newNotes
+            noteStorage: newNoteStorage
         });
-        noteTitleRef.current.value = "";
+    }
+
+    const getFromNoteStorage = async (searchTitle) => {
+        const uid = currentUser.uid;
+        console.log(uid);
+        const docSnap = await getDoc(doc(db,"userStorage",uid));
+        const allNotes = docSnap.data().noteStorage;
+        for (const note of allNotes){
+            if (note.noteTitle === searchTitle){
+                setNotes(note.noteContent);
+                return null;
+            }
+        }
+        setNotes("<p>Note not found</p>")
     }
 
     const onClickAddToStorage = (e) => {
         e.preventDefault();
-        const newNote = {noteTitle: noteTitleRef.current.value, noteContent: notes};
+        const newNote = {noteTitle: noteSaveRef.current.value, noteContent: notes};
         addToNoteStorage(newNote);
+        togglePopupSave(false);
+    }
+
+    const onClickGetNotepad = (e) => {
+        e.preventDefault();
+        getFromNoteStorage(noteLoadRef.current.value);
+        togglePopupLoad(false);
     }
 
     return (
@@ -75,18 +91,18 @@ function Notepad() {
                 />
             </div>
             <div className="row">
-                <button onClick={togglePopup} disabled={!currentUser}>Save Notes</button>
-                <button disabled={!currentUser}>Load Notes</button>
+                <button onClick={()=>togglePopupSave(true)} disabled={!currentUser}>Save Notes</button>
+                <button onClick={()=>togglePopupLoad(true)} disabled={!currentUser}>Load Notes</button>
             </div>
-            {showPopup && <div>
+            {showPopupSave && <div>
                 Save As
-                <input type="text" ref={noteTitleRef}></input>
+                <input type="text" ref={noteSaveRef}></input>
                 <button onClick={onClickAddToStorage}>Add To Storage</button>
             </div>}
-            {showPopup2 && <div>
+            {showPopupLoad && <div>
                 Load which notepad
-                <input type="text" ref={noteTitleRef}></input>
-                <button onClick={onClickAddToStorage}>Add To Storage</button>
+                <input type="text" ref={noteLoadRef}></input>
+                <button onClick={onClickGetNotepad}>Load Note</button>
             </div>}
             
         </React.Fragment>

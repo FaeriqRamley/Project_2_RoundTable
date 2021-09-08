@@ -4,29 +4,62 @@ import db from '../../firebase';
 import {doc,updateDoc,getDoc} from 'firebase/firestore';
 import {useSelector} from 'react-redux';
 import {getAuth} from 'firebase/auth';
+import {useHistory} from 'react-router-dom';
+
 function ButtonMenu() {
     const activeArticle = useSelector(state => state.activeArticle);
+    const currentUser = useSelector(state => state.currentUser);
+    const history = useHistory();
+    
 
     const addToFav = async (favArticle) => {
-        const uid = getAuth().currentUser.uid;
+        const uid = currentUser.uid;
         const docSnap = await getDoc(doc(db,"userStorage",uid));
         const favArr = [...docSnap.data().articleFavourite];
-        favArr.push({title:favArticle.title,url:favArticle.url});
-        await updateDoc(doc(db,"userStorage",uid),{
-            articleFavourite: favArr
-        });
+
+        //Check if article is already favourited
+        let articleFound = 0;
+        for (const article of favArr){
+            if (article.title === favArticle.title && article.url === favArticle.url){
+                articleFound = 1;
+                break;
+            }
+        }
+
+        if (!articleFound){
+            favArr.push({title:favArticle.title,url:favArticle.url});
+            await updateDoc(doc(db,"userStorage",uid),{
+                articleFavourite: favArr
+            });
+        } else {
+            console.log("article already favourited!")
+        }
+        
     }
 
     const handleSaveToFav = (e) => {
         e.preventDefault();
-        addToFav(activeArticle)
+        if (JSON.stringify(activeArticle) !== "{}"){
+            addToFav(activeArticle);
+        } else {
+            console.log("there's no article to save!");
+        }
+        
+    }
+
+    const handleSelectDiffSource = (e) => {
+        e.preventDefault();
+    }
+
+    const handleMakeNewSearch = (e) => {
+        e.preventDefault();
     }
 
     return (
         <div className={styles.menu}>
-            <button onClick={handleSaveToFav}>Save article to favourites</button>
-            <button>Select different sources</button>
-            <button>Make a new search</button>
+            <button onClick={handleSaveToFav} disabled={!currentUser}>Save article to favourites</button>
+            <button onClick={handleSelectDiffSource}>Select different sources</button>
+            <button onClick={handleMakeNewSearch}>Make a new search</button>
         </div>
     )
 }
