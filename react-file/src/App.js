@@ -270,6 +270,7 @@ const dummyNewsData = [
   }
 ]
 
+
 function App() {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.currentUser)
