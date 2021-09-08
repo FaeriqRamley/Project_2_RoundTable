@@ -14,6 +14,12 @@ export const updateNewsData = (articleArr) => {
     }
 }
 
+export const clearNewsData = () => {
+    return {
+        type: "CLEAR_NEWS_DATA"
+    }
+}
+
 //// USER ACTIONS HERE
 export const addUser = (userInfo) => {
     return {
@@ -81,9 +87,9 @@ export const removePublisher = (publisher) => {
     }
 }
 
-export const clearAllPublisher = () => {
+export const clearAllPublishers = () => {
     return {
-        type: "CLEAR_ALL_PUBLISHER",
+        type: "CLEAR_ALL_PUBLISHERS",
     }
 }
 

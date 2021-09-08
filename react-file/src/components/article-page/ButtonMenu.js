@@ -3,7 +3,7 @@ import styles from './buttonMenu.module.css'
 import db from '../../firebase';
 import {doc,updateDoc,getDoc} from 'firebase/firestore';
 import {useSelector,useDispatch} from 'react-redux';
-import {clearActiveArticle} from '../../actions';
+import {clearActiveArticle,clearSearchParams,clearNewsData,clearAllPublishers} from '../../actions';
 import {useHistory} from 'react-router-dom';
 
 
@@ -56,6 +56,10 @@ function ButtonMenu() {
 
     const handleMakeNewSearch = (e) => {
         e.preventDefault();
+        dispatch(clearActiveArticle());
+        dispatch(clearSearchParams());
+        dispatch(clearAllPublishers());
+        // dispatch(clearNewsData());
         history.push("/")
     }
 

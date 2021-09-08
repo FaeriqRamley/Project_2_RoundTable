@@ -57,7 +57,8 @@ function LoginPage() {
                             articleFavourite: [],
                             noteStorage: []
                         })
-                        console.log(userCredentials)
+                        console.log(userCredentials);
+                        history.push("/")
                     }
                 ).catch((error) => {
                     console.log(error.code);
@@ -91,7 +92,7 @@ function LoginPage() {
             </form>
             {JSON.stringify(auth.currentUser)}
             <h6>current user state:</h6>
-            {currentUser? currentUser.uid:""}
+            {currentUser ? currentUser.uid:""}
         </div>
     )
 }
