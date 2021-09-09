@@ -32,7 +32,7 @@ function ArticlePage() {
             <Row className="mx-auto my-2" style={{width:"85%",height:"300px"}}>
                 <Col sm={4} md={3} style={{overflowY:"auto",height:"300px"}}><ArticleNav/></Col>
                 <Col sm={4} md={{span:3,offset:1}} style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundColor:"black",padding:"2px",border:"2px solid #3A7CA5",borderRadius:"0.1rem"}}>
-                    <Image src={activeArticle.urlToImage} fluid/>
+                    <Image src={activeArticle.urlToImage} style={{objectFit:"cover",height:"100%"}} />
                 </Col>
                 <Col sm={4} md={5}>Article Description</Col>
             </Row>
