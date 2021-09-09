@@ -22,18 +22,18 @@ function SearchPage() {
             {/* <Row className={`${styles.searchBar}`}> */}
             <Row className={`${styles.searchBar}`}>
                 <Col md={{span:3,offset:2}}>
-                    <Row><Col>
+                    <Row style={{height:"10%"}}><Col>
                         <h5>1. Input Search Parameters</h5>
                     </Col></Row>
-                    <Row><Col style={{backgroundColor:"#2E294E",color:"#D9DCD6"}}>
+                    <Row style={{height:"90%"}}><Col style={{backgroundColor:"#2E294E",color:"#D9DCD6"}}>
                         <ParamsInput/>
                     </Col></Row>
                 </Col>
                 <Col md={5}>
-                    <Row><Col>
+                    <Row style={{height:"10%"}}><Col>
                         <h5>2. Select Articles from Publishers</h5>
                     </Col></Row>
-                    <Row><Col style={{backgroundColor:"#2E294E",color:"#D9DCD6"}}>
+                    <Row style={{height:"90%"}}><Col style={{backgroundColor:"#2E294E",color:"#D9DCD6"}}>
                         <PublisherSelect/>
                     </Col></Row>
                 </Col>

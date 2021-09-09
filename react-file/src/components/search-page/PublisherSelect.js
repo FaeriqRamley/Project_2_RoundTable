@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router';
 import PublisherWidget from './PublisherWidget';
+import {Row,Col} from 'react-bootstrap';
+
 function PublisherSelect() {
     const [publishers,setPublishers] = useState({})
     const newsData = useSelector(state => state.newsData)
@@ -307,6 +309,23 @@ function PublisherSelect() {
         alignContent:'middle'
     }
 
+    // <React.Fragment>
+    //     <div className="row">
+    //         {Object.entries(publishers).map((item,index) => {
+    //             return (
+    //                 <div key={index} className="col-sm-3" style={divStyle}>
+    //                     <PublisherWidget publisher={item[0]} articleCount={item[1]}/>
+    //                 </div>
+    //             )
+    //         })}
+    //     </div>
+    //     <div className="row align-left">
+    //         <div className="col">
+    //             <button onClick={onClickReadArticles}>Read articles</button>
+    //         </div>
+            
+    //     </div>
+    // </React.Fragment>
     return (
         <React.Fragment>
             <div className="row">
