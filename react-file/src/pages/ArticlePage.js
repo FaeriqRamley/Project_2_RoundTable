@@ -26,7 +26,7 @@ function ArticlePage() {
             </Row>
             <Row style={{width:"95%"}}>
                 <Col sm={4} md={6}><CommentDisplay/></Col>
-                <Col sm={8} md={6}><Notepad/></Col>
+                <Col sm={8} md={6} style={{minHeight:"800px"}}><Notepad/></Col>
             </Row>
         </Container>
     )

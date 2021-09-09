@@ -5,8 +5,8 @@ import {collection, addDoc} from 'firebase/firestore';
 
 function CommentBox() {
     const activeArticle = useSelector(state => state.activeArticle);
+    const currentUser = useSelector(state => state.currentUser)
     const [canPost,setCanPost] = useState(false);
-    const usernameRef = useRef();
     const commentRef = useRef();
     const biasRef = useRef();
 
@@ -21,7 +21,7 @@ function CommentBox() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newComment = {
-            userName: usernameRef.current.value,
+            userName: currentUser.displayName,
             article: activeArticle.title,
             bias: biasRef.current.value,
             content: commentRef.current.value,
@@ -33,7 +33,6 @@ function CommentBox() {
         
         if(newComment.content.length !== 0){
             addDataToCommentsDb(newComment)
-            usernameRef.current.value = "";
             biasRef.current.value = "";
             commentRef.current.value = "";
         } else {
@@ -43,25 +42,21 @@ function CommentBox() {
     }
 
     useEffect(()=> {
-        if (JSON.stringify(activeArticle) === "{}"){
+        if (JSON.stringify(activeArticle) === "{}" || currentUser === null){
             setCanPost(false);
         } else{
             setCanPost(true);
         }
-    },[activeArticle])
+    },[activeArticle,currentUser])
 
     return (
         <React.Fragment>
-            <div className="row align-self-end">Leave a Comment</div>
             <div className="row">
                 <form onSubmit={handleSubmit}>
-                    <label>Name</label>
-                    <input type="text" ref={usernameRef}></input>
-                    <label>Comments</label>
-                    <input type="text" ref={commentRef}></input>
+                    <input type="text" ref={commentRef} placeholder="How reliable is this source?"></input>
                     <label>Bias</label>
                     <input type="text" ref={biasRef}></input>
-                    <button type="submit" disabled={!canPost}>Post comment</button>
+                    <button type="submit" disabled={!canPost}>{canPost? "Post Comment":"Sign in & Select Article"}</button>
                 </form>
             </div>
         </React.Fragment>

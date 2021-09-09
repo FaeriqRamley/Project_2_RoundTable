@@ -1,15 +1,16 @@
 import React from 'react'
 import Comments from './Comments';
 import CommentBox from './CommentBox';
+import {Row} from 'react-bootstrap';
 
 function CommentDisplay() {
     
     return (
-        <div className="container h-100" style={{border:"1px solid black"}}>
-            <div className="row">Comments</div>
-            <Comments />
+        <React.Fragment>
+            <Row><h2>Comments</h2></Row>
             <CommentBox/>
-        </div>
+            <Comments />
+        </React.Fragment>
     )
 }
 

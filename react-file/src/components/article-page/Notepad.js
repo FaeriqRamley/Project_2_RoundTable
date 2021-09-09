@@ -76,7 +76,7 @@ function Notepad() {
             <div className="row">
                 <h2>Take Notes</h2>
             </div>
-            <div className="row" style={{height:"60%",overflow:'auto'}}>
+            <div className="row" style={{height:"700px",overflow:'auto'}}>
                 <ReactQuill 
                 theme="snow"
                 modules={modules}
