@@ -5,7 +5,7 @@ import {doc,updateDoc,getDoc} from 'firebase/firestore';
 import {useSelector,useDispatch} from 'react-redux';
 import {clearActiveArticle,clearSearchParams,clearNewsData,clearAllPublishers} from '../../actions';
 import {useHistory} from 'react-router-dom';
-
+import {ButtonGroup,Button} from 'react-bootstrap';
 
 function ButtonMenu() {
     const activeArticle = useSelector(state => state.activeArticle);
@@ -64,11 +64,22 @@ function ButtonMenu() {
     }
 
     return (
-        <div className={styles.menu}>
-            <button onClick={handleSaveToFav} disabled={!currentUser}>Save article to favourites</button>
-            <button onClick={handleSelectDiffSource}>Select different sources</button>
-            <button onClick={handleMakeNewSearch}>Make a new search</button>
-        </div>
+        // <div className={styles.menu}>
+        //     <button onClick={handleSaveToFav} disabled={!currentUser}>Save article to favourites</button>
+        //     <button onClick={handleSelectDiffSource}>Select different sources</button>
+        //     <button onClick={handleMakeNewSearch}>Make a new search</button>
+        // </div>
+        <ButtonGroup aria-label="Menu Buttons" style={{marginTop:"0px"}}>
+            <Button variant="outline-primary" onClick={handleMakeNewSearch} style={{borderRadius:"0"}}>
+                <span style={{fontSize:"15px"}}>Make A New Search</span>
+            </Button>
+            <Button variant="outline-primary" onClick={handleSelectDiffSource}>
+                <span style={{fontSize:"15px"}}>Choose other sources</span>
+            </Button>
+            <Button variant="outline-warning" onClick={handleSaveToFav} style={{borderRadius:"0"}}>
+                <span style={{fontSize:"15px"}}>Favourite Article</span>
+            </Button>
+        </ButtonGroup>
     )
 }
 

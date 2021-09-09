@@ -12,8 +12,10 @@ function ArticlePage() {
 
     return (
         <Container fluid style={{textAlign:"center"}}>
-            <Row>
-                Button Menu to be here
+            <Row className="centered" style={{width:"50%"}}>
+                <Col>
+                    <ButtonMenu/>
+                </Col>
             </Row>
             <Row className="mx-auto my-2" style={{width:"85%",height:"300px"}}>
                 <Col sm={4} md={3} style={{overflowY:"auto",height:"300px"}}><ArticleNav/></Col>
