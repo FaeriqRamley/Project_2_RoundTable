@@ -14,7 +14,7 @@ function PublisherWidget(props) {
         if(selectedPublishers.indexOf(props.publisher) !== -1){
             toggleSelected(styles.selected);
         }
-    }, [])
+    }, [props.publisher,styles.selected])
 
 
     const handleClick = () => {

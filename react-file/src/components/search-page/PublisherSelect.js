@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router';
 import PublisherWidget from './PublisherWidget';
-import {Row,Col} from 'react-bootstrap';
 
 function PublisherSelect() {
     const [publishers,setPublishers] = useState({})
@@ -288,7 +287,7 @@ function PublisherSelect() {
 
         const publisherCount = {}
         //***change to newsData once done
-        for (const news of dummyNewsData){
+        for (const news of newsData){
             const name = news.source.name
             if (typeof publisherCount[name] === "undefined"){
                 publisherCount[name] = 1;

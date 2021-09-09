@@ -271,7 +271,7 @@ const ArticleNav = () => {
 
     const displayArticle = {};
     //** change to newsData once done
-    for (const news of dummyNewsData){
+    for (const news of newsData){
         if(selectedPublishers.indexOf(news.source.name) !== -1){
             if(typeof displayArticle[news.source.name] === "undefined"){
                 displayArticle[news.source.name] = [news];

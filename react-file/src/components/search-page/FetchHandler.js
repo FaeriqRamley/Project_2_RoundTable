@@ -15,7 +15,7 @@ function FetchHandler() {
                 if (key !== "keywords"){
                     searchString += `&${key}=${value}`;
                 } else {
-                    searchString += `&q=${value}`
+                    searchString += `&qInTitle=${value}`
                 }
             }
 
