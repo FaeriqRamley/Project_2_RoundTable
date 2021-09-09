@@ -2,8 +2,6 @@ import React from 'react'
 import ParamsInput from '../components/search-page/ParamsInput';
 import PublisherSelect from '../components/search-page/PublisherSelect';
 import FetchHandler from '../components/search-page/FetchHandler';
-import Footer from '../components/search-page/Footer';
-import Banner from '../components/search-page/Banner';
 import styles from './searchPage.module.css';
 import {Container,Row,Col} from 'react-bootstrap';
 
@@ -18,7 +16,6 @@ function SearchPage() {
                     <img src="./RoundTable_logo_nobg.png" width="200px" alt="RoundTable Logo"/>
                 </Col>
             </Row>
-            {/* <Row className={`${styles.searchBar}`}> */}
             <Row className={`${styles.searchBar}`}>
                 <Col md={{span:3,offset:2}}>
                     <Row style={{height:"10%"}}><Col>

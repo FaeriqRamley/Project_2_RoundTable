@@ -10,7 +10,8 @@ html {
 
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: rgb(46, 41, 78);
+  color: #D9DCD6;
 }
 
 .centered {
