@@ -9,7 +9,10 @@ function CommentDisplay() {
         <React.Fragment>
             <Row><h2>Comments</h2></Row>
             <CommentBox/>
-            <Comments />
+            <Row className="centered">
+                <Comments />
+            </Row>
+            
         </React.Fragment>
     )
 }

@@ -2,6 +2,7 @@ import React,{useState,useEffect,useRef} from 'react'
 import {useSelector} from 'react-redux'
 import db from '../../firebase';
 import {collection, addDoc} from 'firebase/firestore';
+import {Row,Col,Form} from 'react-bootstrap';
 
 function CommentBox() {
     const activeArticle = useSelector(state => state.activeArticle);
@@ -50,16 +51,23 @@ function CommentBox() {
     },[activeArticle,currentUser])
 
     return (
-        <React.Fragment>
-            <div className="row">
-                <form onSubmit={handleSubmit}>
-                    <input type="text" ref={commentRef} placeholder="How reliable is this source?"></input>
-                    <label>Bias</label>
-                    <input type="text" ref={biasRef}></input>
-                    <button type="submit" disabled={!canPost}>{canPost? "Post Comment":"Sign in & Select Article"}</button>
-                </form>
-            </div>
-        </React.Fragment>
+        <Row>
+            <form onSubmit={handleSubmit}>
+                <Row className="mb-1"><Col>
+                    <input type="text" ref={commentRef} placeholder="How reliable is this source?" style={{width:"80%"}}/>
+                </Col></Row>
+                <Row className="m-auto justify-content-md-end" style={{width:"80%"}}>
+                    <Col md={3} className="p-0">
+                        <input type="text" ref={biasRef} placeholder="Your bias?" style={{width:"100%"}}></input>
+                    </Col>
+                    <Col md={3} className="p-0">
+                        <button type="submit" disabled={!canPost} style={{width:"100%"}}>{canPost? "Post":"Can't Post"}</button>
+                    </Col>
+                
+                
+                </Row>
+            </form>
+        </Row>
     )
 }
 
