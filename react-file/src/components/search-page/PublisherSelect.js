@@ -310,7 +310,6 @@ function PublisherSelect() {
     return (
         <React.Fragment>
             <div className="row">
-                <h5>Select Publishers to read</h5>
                 {Object.entries(publishers).map((item,index) => {
                     return (
                         <div key={index} className="col-sm-3" style={divStyle}>

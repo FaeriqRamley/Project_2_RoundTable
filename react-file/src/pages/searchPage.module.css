@@ -6,7 +6,20 @@
 }
 
 .searchBar {
-    width: 70%;
-    margin: auto;
-    background-color: rgba(105, 105, 105, 0.8);
+    /* background-color: rgba(105, 105, 105, 0.8); */
+    color: whitesmoke;
+}
+
+
+.inputField {
+    background-color: rgba(0,0,0,0);
+    color: whitesmoke;
+    border:none;
+    border-bottom: 2px solid white;
+}
+
+.inputField:focus{
+    background-color: inherit;
+    color:inherit;
+    outline: none;
 }
