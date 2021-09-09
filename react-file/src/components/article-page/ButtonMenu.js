@@ -59,7 +59,7 @@ function ButtonMenu() {
         dispatch(clearActiveArticle());
         dispatch(clearSearchParams());
         dispatch(clearAllPublishers());
-        // dispatch(clearNewsData());
+        dispatch(clearNewsData());
         history.push("/")
     }
 

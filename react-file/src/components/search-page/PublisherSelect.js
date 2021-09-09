@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router';
 import PublisherWidget from './PublisherWidget';
+import {Row,Col,Button} from 'react-bootstrap';
 
 function PublisherSelect() {
     const [publishers,setPublishers] = useState({})
@@ -286,7 +287,6 @@ function PublisherSelect() {
     useEffect(()=> {
 
         const publisherCount = {}
-        //***change to newsData once done
         for (const news of newsData){
             const name = news.source.name
             if (typeof publisherCount[name] === "undefined"){
@@ -327,7 +327,7 @@ function PublisherSelect() {
     // </React.Fragment>
     return (
         <React.Fragment>
-            <div className="row">
+            <Row>
                 {Object.entries(publishers).map((item,index) => {
                     return (
                         <div key={index} className="col-sm-3" style={divStyle}>
@@ -335,13 +335,12 @@ function PublisherSelect() {
                         </div>
                     )
                 })}
-            </div>
-            <div className="row align-left">
-                <div className="col">
-                    <button onClick={onClickReadArticles}>Read articles</button>
-                </div>
-                
-            </div>
+            </Row>
+            <Row className="my-4 justify-content-sm-end">
+                <Col sm={4}>
+                    <Button onClick={onClickReadArticles}>Read articles</Button>
+                </Col>
+            </Row>
         </React.Fragment>
     )
 }
