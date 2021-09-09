@@ -3,8 +3,11 @@ import ArticleNav from '../components/article-page/ArticleNav';
 import ButtonMenu from '../components/article-page/ButtonMenu';
 import CommentDisplay from '../components/article-page/CommentDisplay';
 import Notepad from '../components/article-page/Notepad';
-import {Container,Row,Col} from 'react-bootstrap';
+import {Container,Row,Col,Image} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
+
 function ArticlePage() {
+    const activeArticle = useSelector(state => state.activeArticle)
     // <div className="container">
     // <div className="row py-2" style={{textAlign:'center',border:"1px solid black",minHeight:"95vh"}}>
     //     <div className="col-md-3">
@@ -26,9 +29,11 @@ function ArticlePage() {
             <Row>
                 Button Menu to be here
             </Row>
-            <Row className="mx-auto" style={{width:"85%",height:"400px"}}>
-                <Col sm={4} md={3}>Article Nav</Col>
-                <Col sm={4} md={{span:3,offset:1}}>Image</Col>
+            <Row className="mx-auto my-2" style={{width:"85%",height:"300px"}}>
+                <Col sm={4} md={3} style={{overflowY:"auto",height:"300px"}}><ArticleNav/></Col>
+                <Col sm={4} md={{span:3,offset:1}} style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundColor:"black",padding:"2px",border:"2px solid #3A7CA5",borderRadius:"0.1rem"}}>
+                    <Image src={activeArticle.urlToImage} fluid/>
+                </Col>
                 <Col sm={4} md={5}>Article Description</Col>
             </Row>
             <Row style={{width:"95%"}}>
