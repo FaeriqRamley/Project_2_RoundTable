@@ -29,34 +29,36 @@ function ParamsInput() {
         //     <Button variant="test" type="submit">Search</Button>
         // </form>
     return (
-        <Form onSubmit={handleSubmit}>
-            <Row className="my-1">
-                <Col>
-                    <FloatingLabel controlId="floatingKeywords" label="Keywords">
-                        <Form.Control id="keywords" type="text" placeholder="Keywords" className={styles.inputField} ref={keywordRef}/>
-                    </FloatingLabel>
-                </Col>
-            </Row>
-            <Row className="my-1">
-                <Col>
-                    <FloatingLabel controlId="floatingSource" label="Source">
-                    <Form.Control id="source" type="text" placeholder="Enter Sources" className={styles.inputField} ref={sourceRef}/>
-                    </FloatingLabel>
-                </Col>
-            </Row>
-            <Row className="my-1">
-                <Col>
-                    <FloatingLabel controlId="floatingSource" label="Language">
-                    <Form.Control id="language" type="text" placeholder="Enter Language" className={styles.inputField} ref={languageRef}/>
-                    </FloatingLabel>
-                </Col>
-            </Row>
-            <Row className="my-4 justify-content-sm-end">
-                <Col sm={4}>
-                    <Button type="submit">Search</Button>
-                </Col>
-            </Row>
-        </Form>
+        <Container fluid style={{width:"100%",height:"98%"}}>
+            <Form onSubmit={handleSubmit}>
+                <Row className="my-1">
+                    <Col>
+                        <FloatingLabel controlId="floatingKeywords" label="Keywords">
+                            <Form.Control id="keywords" type="text" placeholder="Keywords" className={styles.inputField} ref={keywordRef}/>
+                        </FloatingLabel>
+                    </Col>
+                </Row>
+                <Row className="my-1">
+                    <Col>
+                        <FloatingLabel controlId="floatingSource" label="Source">
+                        <Form.Control id="source" type="text" placeholder="Enter Sources" className={styles.inputField} ref={sourceRef}/>
+                        </FloatingLabel>
+                    </Col>
+                </Row>
+                <Row className="my-1">
+                    <Col>
+                        <FloatingLabel controlId="floatingSource" label="Language">
+                        <Form.Control id="language" type="text" placeholder="Enter Language" className={styles.inputField} ref={languageRef}/>
+                        </FloatingLabel>
+                    </Col>
+                </Row>
+                <Row className="mt-3 justify-content-sm-end">
+                    <Col sm={4}>
+                        <Button type="submit">Search</Button>
+                    </Col>
+                </Row>
+            </Form>
+        </Container>
     )
 }
 

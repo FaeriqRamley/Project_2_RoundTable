@@ -1,0 +1,13 @@
+.readButton {
+    background-color: rgba(0,0,0,0);
+    width:100%;
+    border:none;
+    text-decoration: rgba(0,0,0,0) underline;
+}
+
+.readButton:hover{
+    background-color: rgba(90, 147, 103,0.6);
+    border-radius: 0px;
+    text-decoration:#D9DCD6 underline;
+    transition: all 0.3s ease-in-out;
+}

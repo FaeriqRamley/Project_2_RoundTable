@@ -14,7 +14,7 @@ function PublisherWidget(props) {
         if(selectedPublishers.indexOf(props.publisher) !== -1){
             toggleSelected(styles.selected);
         }
-    }, [props.publisher,styles.selected])
+    }, [])
 
 
     const handleClick = () => {
@@ -35,7 +35,7 @@ function PublisherWidget(props) {
     }
     return (
         <div className={`${styles.widgetDiv} ${selected}`} onClick={handleClick}>
-            <div className={styles.publisherDiv}>{props.publisher}</div>
+            <div className={styles.publisherDiv}><h6>{props.publisher}</h6></div>
             <div className={styles.articleDiv}>{props.articleCount} article(s)</div>
         </div>
     )

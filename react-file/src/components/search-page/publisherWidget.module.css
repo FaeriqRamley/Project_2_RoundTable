@@ -1,19 +1,29 @@
 .widgetDiv {
-    max-width: 110px;
-    border:1px solid rgba(0,0,0,0);
+    width: 110px;
+    height: 65px;
+    border:1px solid rgba(0,0,0,0.15);
     transition: all 0.25s ease-out;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .publisherDiv {
-    color:red;
-    font-size:0.7em;
+    color:#D9DCD6;
+}
+
+.publisherDiv h6 {
+    margin-bottom:0px;
+    font-size: 0.75rem;
 }
 .articleDiv {
+    color:#D9DCD6;
     font-size: 0.65em;
 }
 .selected {
     transition: all 0.2s ease-in;
-    border:1px solid black;
-    border-radius: 0.2rem;
-    background-color: rgba(0,0,0,0.1);
+    border:3px solid black;
+    border-radius: 0.5rem;
+    background-color: rgb(58, 124, 165,0.7);
+    text-size-adjust: 110%;
 }
