@@ -74,11 +74,6 @@ function Notepad() {
     return (
         <React.Fragment>
             <div className="row">
-                <h5>{activeArticle.title}</h5>
-            </div>
-            {}
-            
-            <div className="row">
                 <h2>Take Notes</h2>
             </div>
             <div className="row" style={{height:"60%",overflow:'auto'}}>
