@@ -2,6 +2,7 @@ import React,{useRef} from 'react'
 import inputStyles from "./input.module.css"
 import {useDispatch} from 'react-redux';
 import {addSearchParams} from '../../actions';
+import {Button} from 'react-bootstrap';
 function ParamsInput() {
     const keywordRef = useRef("")
     const sourceRef = useRef("")
@@ -25,7 +26,7 @@ function ParamsInput() {
             <input id="source" styles={{inputStyles}} type="text" ref={sourceRef}></input>
             <label>Language</label>
             <input id="language" styles={{inputStyles}} type="text" ref={languageRef}></input>
-            <button type="submit">Search</button>
+            <Button variant="test" type="submit">Search</Button>
         </form>
     )
 }

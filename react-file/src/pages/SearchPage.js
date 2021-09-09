@@ -5,6 +5,7 @@ import FetchHandler from '../components/search-page/FetchHandler';
 import Footer from '../components/search-page/Footer';
 import Banner from '../components/search-page/Banner';
 import styles from './searchPage.module.css';
+import {Container,Row,Column} from 'react-bootstrap';
 
 const quote = {quote:"The greatest tragedy for any human being is going through their entire lives believing the only perspective that matters is their own.", author:"Doug Baldwin"}
 
@@ -19,8 +20,8 @@ function SearchPage() {
                 </div>
             </div>
             <div className={`row ${styles.searchBar}`}>
-                <div className="col-md-4" style={{border:"1px solid black"}}><ParamsInput/></div>
-                <div className="col-md-8" style={{textAlign:"center",border:"1px solid black"}}><PublisherSelect/></div>
+                <div className="col-md-4" style={{backgroundColor:"#2E294E",color:"#D9DCD6"}}><ParamsInput/></div>
+                <div className="col-md-8" style={{textAlign:"center"}}><PublisherSelect/></div>
             </div>
         </div>
     )
