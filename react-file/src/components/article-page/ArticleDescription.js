@@ -15,7 +15,7 @@ function ArticleDescription() {
                 <p style={{marginBottom:'10px'}}>Published on: {activeArticle.publishedAt.split("T")[0]}</p>
             </Col></Row>
             <Row><Col>
-                <h6>{activeArticle.description.substring(0,120)}... <a>Read more</a></h6>
+                <h6>{activeArticle.description.substring(0,120)}... <a href={activeArticle.url} target="_blank" rel="noopener noreferrer">Read more</a></h6>
             </Col></Row>
         </React.Fragment>
     )

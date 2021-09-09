@@ -43,11 +43,11 @@ function ArticleNavItem(props) {
     }
     
     return (
-        <p>
-            <a href={props.article.url} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+        <React.Fragment>
+            <h6 onClick={handleClick} style={{color:"black",cursor:'pointer'}}>
             {props.article.title}
-            </a>
-        </p>
+            </h6>
+        </React.Fragment>
     )
 }
 
