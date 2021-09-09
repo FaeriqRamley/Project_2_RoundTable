@@ -34,21 +34,21 @@ function ParamsInput() {
                 <Row className="my-1">
                     <Col>
                         <FloatingLabel controlId="floatingKeywords" label="Keywords">
-                            <Form.Control id="keywords" type="text" placeholder="Keywords" className={styles.inputField} ref={keywordRef}/>
+                            <Form.Control id="keywords" type="text" placeholder="Keywords" className={styles.inputField} ref={keywordRef} autoComplete="off"/>
                         </FloatingLabel>
                     </Col>
                 </Row>
                 <Row className="my-1">
                     <Col>
                         <FloatingLabel controlId="floatingSource" label="Source">
-                        <Form.Control id="source" type="text" placeholder="Enter Sources" className={styles.inputField} ref={sourceRef}/>
+                        <Form.Control id="source" type="text" placeholder="Enter Sources" className={styles.inputField} ref={sourceRef} autoComplete="off"/>
                         </FloatingLabel>
                     </Col>
                 </Row>
                 <Row className="my-1">
                     <Col>
                         <FloatingLabel controlId="floatingSource" label="Language">
-                        <Form.Control id="language" type="text" placeholder="Enter Language" className={styles.inputField} ref={languageRef}/>
+                        <Form.Control id="language" type="text" placeholder="Enter Language" className={styles.inputField} ref={languageRef} autoComplete="off"/>
                         </FloatingLabel>
                     </Col>
                 </Row>
