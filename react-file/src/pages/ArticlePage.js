@@ -13,12 +13,12 @@ function ArticlePage() {
     console.log(activeArticle);
     return (
         <Container fluid style={{textAlign:"center"}}>
-            <Row className="centered" style={{width:"50%"}}>
-                <Col>
+            <Row className="mx-auto my-4" style={{width:"95%"}}>
+                <Col sm={4} style={{textAlign:"left",padding:"0"}}>
                     <ButtonMenu/>
                 </Col>
             </Row>
-            <Row className="mx-auto my-2" style={{width:"85%",height:"300px"}}>
+            <Row className="mx-auto my-2" style={{width:"95%",height:"300px"}}>
                 
                 <Col sm={4} md={4} style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundImage:'url("./RoundTable.png")',backgroundSize:"contain",backgroundPosition:"center",height:"300px",maxWidth:"300px",padding:"0px",border:"2px solid black",borderRadius:"0.1rem"}}>
                     <Image src={activeArticle.image} style={{objectFit:"cover",height:"100%",width:"100%"}}/>
