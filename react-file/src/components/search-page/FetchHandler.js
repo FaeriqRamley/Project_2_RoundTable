@@ -15,12 +15,12 @@ function FetchHandler() {
                 if (key !== "keywords"){
                     searchString += `&${key}=${value}`;
                 } else {
-                    searchString += `&qInTitle=${value}`
+                    searchString += `&q=${value}`
                 }
             }
 
             console.log("running fetch news")
-            const url = `https://newsapi.org/v2/everything?apiKey=${newsApiKey}${searchString}`
+            const url = `https://gnews.io/api/v4/search?token=${newsApiKey}${searchString}&in=title`
             console.log(url);
             try {
                 const res = await fetch(url);

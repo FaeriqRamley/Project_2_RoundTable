@@ -1,7 +1,7 @@
-const searchParamsReducer = (state={keywords:'',source:'',language:''},action) => {
+const searchParamsReducer = (state={keywords:'',country:'',language:''},action) => {
     switch(action.type){
         case "CLEAR_SEARCH_PARAMS":
-            return {keywords:'',source:'',language:''};
+            return {keywords:'',country:'',language:''};
         case "ADD_SEARCH_PARAMS":
             const payload = {...action.payload};
 

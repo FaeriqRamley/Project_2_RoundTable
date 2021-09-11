@@ -16,8 +16,8 @@ function App() {
   const auth = getAuth();
   
   useEffect(() => {
-    const newsApiKey = "dba1b96e6cc24cb98d29ed09f8bd10ae";
-    dispatch(updateNewsKey(newsApiKey))
+    const gNewsApiKey = "d69945a9c7ac933a0182b48a3b100db9";
+    dispatch(updateNewsKey(gNewsApiKey))
   }, [])
 
   useEffect(()=> {

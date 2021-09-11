@@ -23,7 +23,7 @@ function SearchPage() {
                             <span style={{backgroundColor:"black"}}>1. Input Search Parameters</span>
                         </h5>
                     </Col></Row>
-                    <Row style={{height:"90%"}}><Col style={{backgroundColor:"#2E294E",color:"#D9DCD6",border:"2px solid black",padding:"0px"}}>
+                    <Row style={{height:"90%"}}><Col style={{backgroundColor:"rgba(46, 41, 78,0.85)",color:"#D9DCD6",border:"2px solid black",padding:"0px"}}>
                         <ParamsInput/>
                     </Col></Row>
                 </Col>
@@ -33,7 +33,7 @@ function SearchPage() {
                             <span style={{backgroundColor:"black"}}>2. Select Articles from Publishers</span>
                         </h5>
                     </Col></Row>
-                    <Row style={{height:"90%"}}><Col style={{backgroundColor:"#2E294E",color:"#D9DCD6",border:"2px solid black",borderLeft:"0px",position:"relative"}}>
+                    <Row style={{height:"90%"}}><Col style={{backgroundColor:"rgba(46, 41, 78,0.85)",color:"#D9DCD6",border:"2px solid black",borderLeft:"0px",position:"relative"}}>
                         <PublisherSelect/>
                     </Col></Row>
                 </Col>

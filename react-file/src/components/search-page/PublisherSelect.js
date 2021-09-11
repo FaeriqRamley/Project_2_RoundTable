@@ -13,14 +13,13 @@ function PublisherSelect() {
     const history = useHistory();
 
     const onClickReadArticles = () => {
-        console.log("read articles");
-        console.log(selectedPublishers);
+        // console.log("read articles");
+        // console.log(selectedPublishers);
         if(selectedPublishers.length===0){
             console.log("Please choose at least one article source");
         } else {
             history.push("/articles");
         }
-        
     }
 
     useEffect(()=> {
@@ -52,9 +51,9 @@ function PublisherSelect() {
     }
 
     const havePublishers = (Object.entries(publishers).length !== 0)
-    console.log(havePublishers);
-    console.log(publishers);
-    console.log(Object.entries(publishers).length)
+    // console.log(havePublishers);
+    // console.log(publishers);
+    // console.log(Object.entries(publishers).length)
     return (
         <React.Fragment>
             <Row>
