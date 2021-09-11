@@ -19,13 +19,14 @@ function ArticlePage() {
                 </Col>
             </Row>
             <Row className="mx-auto my-2" style={{width:"85%",height:"300px"}}>
-                <Col sm={4} md={3} style={{overflowY:"auto",height:"300px"}}><ArticleNav/></Col>
-                <Col sm={4} md={{span:3,offset:1}} style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundImage:'url("./RoundTable.png")',backgroundSize:"contain",backgroundPosition:"center",height:"300px",maxWidth:"300px",padding:"0px",border:"2px solid black",borderRadius:"0.1rem"}}>
+                
+                <Col sm={4} md={4} style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundImage:'url("./RoundTable.png")',backgroundSize:"contain",backgroundPosition:"center",height:"300px",maxWidth:"300px",padding:"0px",border:"2px solid black",borderRadius:"0.1rem"}}>
                     <Image src={activeArticle.image} style={{objectFit:"cover",height:"100%",width:"100%"}}/>
                 </Col>
-                <Col sm={4} md={5} style={{textAlign:"left",backgroundColor:"rgba(33,37,41,.6)"}}>
+                <Col sm={1} md={5} style={{textAlign:"left",backgroundColor:"#C8D3DE"}}>
                     {JSON.stringify(activeArticle)!=="{}" ? <ArticleDescription/> : <h3>Select an article</h3>}
                 </Col>
+                <Col sm={4} md={{span:3,offset:1}} style={{overflowY:"auto",height:"300px"}}><ArticleNav/></Col>
             </Row>
             <Row style={{width:"95%"}}>
                 <Col sm={4} md={6}><CommentDisplay/></Col>

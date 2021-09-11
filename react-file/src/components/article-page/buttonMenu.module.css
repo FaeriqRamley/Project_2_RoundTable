@@ -1,7 +1,13 @@
-.menu{
-    overflow: hidden;
-}
+
+
 .menu button{
-    margin:1px;
-    width:95%;
+    color:#363E5C;
+    border-radius: 0px;
+    border-color: #363E5C;
+    background-color: #C8D3DE;
+}
+
+.menu button:hover{
+    background-color: #363E5C;
+    border-color: #363E5C;
 }
