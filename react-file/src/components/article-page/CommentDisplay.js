@@ -10,8 +10,10 @@ function CommentDisplay() {
             <Row>
                 <Col style={{textAlign:"left"}}><h3>Comments</h3></Col>
             </Row>
-            <CommentBox/>
-            <Row className="centered">
+            <Row>
+                <CommentBox/>
+            </Row>
+            <Row>
                 <Comments />
             </Row>
             

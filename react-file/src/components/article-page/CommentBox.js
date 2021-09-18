@@ -52,25 +52,23 @@ function CommentBox() {
     },[activeArticle,currentUser])
 
     return (
-        <Row>
-            <form className={styles.commentForm} onSubmit={handleSubmit}>
-                <Row className="mb-2"><Col>
-                    <textarea rows="2" type="text" ref={commentRef} placeholder="What do you think of this article? Make sure to indicate where you stand"/>
-                </Col></Row>
-                <Row className="m-0 justify-content-md-end" style={{width:"100%"}}>
-                    <Col md={4} className="p-0">
-                        <select id="biasSelect" ref={biasRef} style={{width:"40%",height:"100%"}}>
-                            <option value="Neutral">Neutral</option>
-                            <option value="For">For</option>
-                            <option value="Against">Against</option>
-                        </select>
-                        <button type="submit" disabled={!canPost} style={{width:"60%",height:"100%"}}>Comment</button>
-                    </Col>
-                
-                
-                </Row>
-            </form>
-        </Row>
+        <form className={styles.commentForm} onSubmit={handleSubmit}>
+            <Row className="mb-2"><Col>
+                <textarea rows="2" type="text" ref={commentRef} placeholder="What do you think of this article? Make sure to indicate where you stand"/>
+            </Col></Row>
+            <Row className="m-0 justify-content-md-end" style={{width:"100%"}}>
+                <Col md={4} className="p-0">
+                    <select id="biasSelect" ref={biasRef} style={{width:"40%",height:"100%"}}>
+                        <option value="Neutral">Neutral</option>
+                        <option value="For">For</option>
+                        <option value="Against">Against</option>
+                    </select>
+                    <button type="submit" disabled={!canPost} style={{width:"60%",height:"100%"}}>Comment</button>
+                </Col>
+            
+            
+            </Row>
+        </form>
     )
 }
 
