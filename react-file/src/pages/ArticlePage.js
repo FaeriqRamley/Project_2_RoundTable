@@ -38,11 +38,9 @@ function ArticlePage() {
                         </Row>
                         
                     </Col>
-                    
-                    
                 </Row>
                 
-                <Row className="mx-auto" style={{width:"95%"}}>
+                <Row className="mx-auto mb-4" style={{width:"95%"}}>
                     <Col sm={4} md={{span:9,offset:3}}><CommentDisplay/></Col>
                 </Row>
 
@@ -54,8 +52,9 @@ function ArticlePage() {
                 >
                     <NotepadModal setShowModal={setShowModal}/>
                 </Modal>
+                <Row><Button style={{width:"200px"}} onClick={()=> setShowModal(true)}>Take some Notes</Button></Row>
             </Container>
-            <Button style={{position:"fixed",bottom:"0",width:"200px"}} onClick={()=> setShowModal(true)}>Take some Notes</Button>
+            
         </>
     )
 }

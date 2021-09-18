@@ -1,5 +1,14 @@
+.accordion-item {
+    background-color: rgba(0,0,0,0);
+}
+
+.accordion-header {
+    border:none;
+}
+
 .accordion-button {
-    background-color: #fff ;
+    background-color: rgba(0,0,0,0) ;
+    border:none;
 }
 
 .accordion-button:focus {

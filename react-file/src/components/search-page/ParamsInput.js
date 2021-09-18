@@ -48,7 +48,7 @@ function ParamsInput() {
                 <Row className="my-1">
                     <Col>
                         <FloatingLabel controlId="floatingSource" label="Language">
-                        <Form.Control id="language" type="text" placeholder="Enter Language" className={styles.inputField} ref={languageRef} autoComplete="off"/>
+                        <Form.Control id="lang" type="text" placeholder="Enter Language" className={styles.inputField} ref={languageRef} autoComplete="off"/>
                         </FloatingLabel>
                     </Col>
                 </Row>

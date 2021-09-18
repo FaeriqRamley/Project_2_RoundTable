@@ -4,9 +4,10 @@ import ArticleNavItem from './ArticleNavItem';
 function ArticleNavList(props) {
     let publisherNoSpace = props.publisher.replaceAll(" ","");
     publisherNoSpace = publisherNoSpace.replaceAll(".","");
+    publisherNoSpace = "a" + publisherNoSpace;
     return (
         <div className="accordion-item">
-            <h2 className="accordion-header" id={`heading${publisherNoSpace}`}>
+            <h2 className="accordion-header" id={`heading-${publisherNoSpace}`}>
                 <button
                     className="accordion-button"
                     type="button"
@@ -22,7 +23,7 @@ function ArticleNavList(props) {
             <div
                 id={`${publisherNoSpace}`}
                 className="accordion-collapse collapse hide"
-                aria-labelledby={`heading${publisherNoSpace}`}
+                aria-labelledby={`heading-${publisherNoSpace}`}
                 data-bs-parent="#articleNav">
                 <div className="accordion-body" style={{textAlign:"left"}}>
                     {props.newsArr.map((article,index)=>

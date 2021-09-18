@@ -9,6 +9,7 @@ import {updateNewsKey,addUser} from "./actions";
 import LoginPage from "./pages/LoginPage";
 import { getAuth,onAuthStateChanged } from "@firebase/auth";
 import AppNav from "./components/AppNav";
+import {Container,Row} from 'react-bootstrap';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,21 +32,17 @@ function App() {
   return (
     <div>
         <AppNav/>
-      <div className="container-fluid">
-        <div className="row">
+        <Container fluid>
+          <Row>
             <Switch>
                 <Route exact path="/" component={SearchPage}/>
                 <Route path="/articles" component={ArticlePage}/>
                 <Route path="/profile" component={ProfilePage}/>
                 <Route path="/login" component={LoginPage}/>
             </Switch>
-        </div>
-        <div className="row">
-            <Footer/>
-        </div>
-        
-        </div>
-      
+          </Row>
+        </Container>
+        <Footer/>
     </div>
   );
 }
