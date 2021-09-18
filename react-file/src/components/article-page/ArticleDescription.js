@@ -52,7 +52,7 @@ function ArticleDescription() {
                 <Col sm={3} style={{display:"flex",justifyContent:"center",flexDirection:"column"}}>
                 <h6 style={{margin:"0"}}>{activeArticle.source.name}</h6>
                 </Col>
-                <Col sm={{span:4,offset:5}} style={{padding:"10px"}}>
+                <Col sm={{span:2,offset:7}} style={{padding:"10px"}}>
                     <Button variant="outline-warning" onClick={handleSaveToFav} style={{borderRadius:"0",borderColor:"#A38915",width:"100%",padding:"0px"}}>
                         <span style={{fontSize:"16px",paddign:"0px",color:"#A38915"}}>Favourite Article</span>
                     </Button>
@@ -65,7 +65,9 @@ function ArticleDescription() {
                 <p style={{marginBottom:'10px'}}>Published on: {activeArticle.publishedAt.split("T")[0]}</p>
             </Col></Row>
             <Row><Col>
-                <h6>{activeArticle.description.substring(0,120)}... <a href={activeArticle.url} target="_blank" rel="noopener noreferrer">Read more</a></h6>
+                <h6>{activeArticle.description.substring(0,200)} {activeArticle.description.length>200 ? "...":" "}
+                    <a href={activeArticle.url} target="_blank" rel="noopener noreferrer">Read more</a>
+                </h6>
             </Col></Row>
         </React.Fragment>
     )
