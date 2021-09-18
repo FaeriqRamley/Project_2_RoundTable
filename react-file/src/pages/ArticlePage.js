@@ -1,16 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ArticleNav from '../components/article-page/ArticleNav';
 import ButtonMenu from '../components/article-page/ButtonMenu';
 import ArticleDescription from '../components/article-page/ArticleDescription';
 import CommentDisplay from '../components/article-page/CommentDisplay';
 import Notepad from '../components/article-page/Notepad';
-import {Container,Row,Col,Image} from 'react-bootstrap';
+import {Container,Row,Col,Image,Button,Modal} from 'react-bootstrap';
 import {useSelector} from 'react-redux';
 import './ArticlePage.css';
 
 
 function ArticlePage() {
     const activeArticle = useSelector(state => state.activeArticle)
+    const [showModal,setShowModal] = useState(false);
     console.log(activeArticle);
 
     return (
@@ -39,10 +40,33 @@ function ArticlePage() {
                 
                 
             </Row>
-            <Row style={{width:"95%"}}>
-                <Col sm={4} md={6}><CommentDisplay/></Col>
-                <Col sm={8} md={6} style={{minHeight:"800px"}}><Notepad/></Col>
+            
+            <Row className="mx-auto" style={{width:"95%"}}>
+                <Col sm={4} md={{span:9,offset:3}}><CommentDisplay/></Col>
             </Row>
+
+            <Row>
+                <Button onClick={()=> setShowModal(true)}>Take some Notes</Button>
+            </Row>
+            
+            <Modal
+                show={showModal}
+                size="lg"
+                aria-labelledby="notepad-modal"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Take Notes
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Notepad/>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={()=> setShowModal(false)}>Close</Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     )
 }

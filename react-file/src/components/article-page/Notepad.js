@@ -73,9 +73,6 @@ function Notepad() {
 
     return (
         <React.Fragment>
-            <div className="row">
-                <h2>Take Notes</h2>
-            </div>
             <div className="row" style={{height:"700px",overflow:'auto'}}>
                 <ReactQuill 
                 theme="snow"
