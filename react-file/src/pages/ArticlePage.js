@@ -25,12 +25,13 @@ function ArticlePage() {
                 <Col className=""sm={8} md={9} style={{borderLeft:"none"}} >
                     <Row>
                         <Col style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundSize:"contain",backgroundPosition:"center",padding:"0px",border:"none",borderRadius:"0.1rem",height:"40vh",backgroundColor:"#363e5c"}}>
-                            <Image src={activeArticle.image} style={{objectPosition:"0 0",objectFit:"cover",height:"100%",width:"100%"}}/>
+                            {JSON.stringify(activeArticle)!=="{}" ? <Image src={activeArticle.image} style={{objectPosition:"0 0",objectFit:"cover",height:"100%",width:"100%"}}/> : <h1 style={{color:"#e6e7e8",width:"80%",margin:"auto"}}>Select An Article On The Left Start Reading </h1>}
+                            
                         </Col>
                     </Row>
                     <Row>
                         <Col style={{textAlign:"left",backgroundColor:"#C8D3DE",height:"20vh",overflowY:"auto"}}>
-                            {JSON.stringify(activeArticle)!=="{}" ? <ArticleDescription/> : <h3>Select an article</h3>}
+                            {JSON.stringify(activeArticle)!=="{}" ? <ArticleDescription/> : <div><br/><h6>ArticleDescription</h6></div>}
                         </Col>
                     </Row>
                     
