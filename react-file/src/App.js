@@ -3,7 +3,7 @@ import { Switch,Route } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import ArticlePage from "./pages/ArticlePage";
 import ProfilePage from "./pages/ProfilePage";
-import Footer from "./components/search-page/Footer";
+import Footer from "./components/Footer";
 import {useDispatch} from 'react-redux';
 import {updateNewsKey,addUser} from "./actions";
 import LoginPage from "./pages/LoginPage";

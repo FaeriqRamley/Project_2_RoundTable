@@ -4,8 +4,7 @@ import "./notepad.css";
 import { useSelector } from 'react-redux';
 import db from '../../firebase';
 import {doc,updateDoc,getDoc} from 'firebase/firestore';
-import {getAuth} from 'firebase/auth';
-
+import {Row,Col,ButtonGroup,Button} from 'react-bootstrap';
 const modules = {
     toolbar: [
       [{ 'header': [1, 2, 3, false] }],
@@ -24,13 +23,13 @@ const formats = [
 ]
 
 function Notepad() {
-    const activeArticle = useSelector(state => state.activeArticle)
     const currentUser = useSelector(state => state.currentUser)
     const [notes,setNotes] = useState("");
     const noteSaveRef = useRef();
     const noteLoadRef = useRef();
     const [showPopupSave,togglePopupSave] = useState(false);
     const [showPopupLoad,togglePopupLoad] = useState(false);
+
     const handleNotes = (e) => {
         setNotes(e);
     }
@@ -73,7 +72,7 @@ function Notepad() {
 
     return (
         <React.Fragment>
-            <div className="row" style={{height:"700px",overflow:'auto'}}>
+            <Row style={{height:"700px",overflow:'auto'}}>
                 <ReactQuill 
                 theme="snow"
                 modules={modules}
@@ -81,11 +80,15 @@ function Notepad() {
                 onChange={handleNotes}
                 value={notes}
                 />
-            </div>
-            <div className="row">
-                <button onClick={()=>togglePopupSave(true)} disabled={!currentUser}>Save Notes</button>
-                <button onClick={()=>togglePopupLoad(true)} disabled={!currentUser}>Load Notes</button>
-            </div>
+            </Row>
+            <Row className="mx-auto mt-3 justify-content-between" style={{textAlign:"center"}}>
+                <Col>
+                    <Button className="btn-success" style={{borderRadius:"0"}} onClick={()=>togglePopupSave(true)} disabled={!currentUser}>Save Notes</Button>
+                </Col>
+                <Col>
+                    <Button className="btn-success" style={{borderRadius:"0"}} onClick={()=>togglePopupLoad(true)} disabled={!currentUser}>Load Notes</Button>
+                </Col>
+            </Row>
             {showPopupSave && <div>
                 Save As
                 <input type="text" ref={noteSaveRef}></input>
