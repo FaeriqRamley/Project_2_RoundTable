@@ -2,7 +2,8 @@ import React,{useState,useEffect,useRef} from 'react'
 import {useSelector} from 'react-redux'
 import db from '../../firebase';
 import {collection, addDoc} from 'firebase/firestore';
-import {Row,Col,Form} from 'react-bootstrap';
+import {Row,Col} from 'react-bootstrap';
+import styles from "./CommentBox.module.css";
 
 function CommentBox() {
     const activeArticle = useSelector(state => state.activeArticle);
@@ -34,7 +35,7 @@ function CommentBox() {
         
         if(newComment.content.length !== 0){
             addDataToCommentsDb(newComment)
-            biasRef.current.value = "";
+            biasRef.current.value = "Neutral";
             commentRef.current.value = "";
         } else {
             console.log("Write something in comments!")
@@ -52,16 +53,18 @@ function CommentBox() {
 
     return (
         <Row>
-            <form onSubmit={handleSubmit}>
-                <Row className="mb-1"><Col>
-                    <input type="text" ref={commentRef} placeholder="How reliable is this source?" style={{width:"80%"}}/>
+            <form className={styles.commentForm} onSubmit={handleSubmit}>
+                <Row className="mb-2"><Col>
+                    <textarea rows="2" type="text" ref={commentRef} placeholder="What do you think of this article? Make sure to indicate where you stand"/>
                 </Col></Row>
-                <Row className="m-auto justify-content-md-end" style={{width:"80%"}}>
-                    <Col md={3} className="p-0">
-                        <input type="text" ref={biasRef} placeholder="Your bias?" style={{width:"100%"}}></input>
-                    </Col>
-                    <Col md={3} className="p-0">
-                        <button type="submit" disabled={!canPost} style={{width:"100%"}}>{canPost? "Post":"Can't Post"}</button>
+                <Row className="m-0 justify-content-md-end" style={{width:"100%"}}>
+                    <Col md={4} className="p-0">
+                        <select id="biasSelect" ref={biasRef} style={{width:"40%",height:"100%"}}>
+                            <option value="Neutral">Neutral</option>
+                            <option value="For">For</option>
+                            <option value="Against">Against</option>
+                        </select>
+                        <button type="submit" disabled={!canPost} style={{width:"60%",height:"100%"}}>Comment</button>
                     </Col>
                 
                 

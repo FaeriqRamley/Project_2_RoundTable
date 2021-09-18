@@ -1,0 +1,22 @@
+.commentForm {
+    text-align: left;
+}
+
+.commentForm textarea {
+    background-color: rgba(0,0,0,0);
+    resize: none;
+    width: 100%;
+    border: 2px solid rgba(0,0,0,0);
+    border-bottom:2px solid black;
+    border-radius: 0.2rem;
+    transition:0.3s all ease-in-out;
+}
+
+.commentForm textarea:hover{
+    border: 2px solid black;
+}
+
+.commentForm textarea:focus{
+    border: 2px solid rgb(160, 32, 32);
+    outline:none;
+}
