@@ -22,4 +22,15 @@
     background-color: inherit;
     color:inherit;
     outline: none;
+    box-shadow: none;
+}
+
+.searchButton {
+    background-color: inherit;
+    border-color:#E6E7E8;
+}
+
+.searchButton:hover{
+    background-color: rgba(90, 147, 103,0.6);
+    border-color: rgba(0,0,0,0);
 }

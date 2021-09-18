@@ -54,7 +54,7 @@ function ParamsInput() {
                 </Row>
                 <Row className="mt-3 justify-content-sm-end">
                     <Col sm={4}>
-                        <Button type="submit">Search</Button>
+                        <Button className={styles.searchButton} type="submit">Search</Button>
                     </Col>
                 </Row>
             </Form>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './buttonMenu.module.css'
 import {useSelector,useDispatch} from 'react-redux';
-import {clearActiveArticle,clearSearchParams,clearNewsData,clearAllPublishers} from '../../actions';
+import {clearActiveArticle,clearSearchParams,clearNewsData,clearAllPublishers,clearComments} from '../../actions';
 import {useHistory} from 'react-router-dom';
 import {ButtonGroup,Button} from 'react-bootstrap';
 
@@ -12,6 +12,7 @@ function ButtonMenu() {
     const handleSelectDiffSource = (e) => {
         e.preventDefault();
         dispatch(clearActiveArticle());
+        dispatch(clearComments());
         history.push("/")
     }
 
@@ -21,6 +22,7 @@ function ButtonMenu() {
         dispatch(clearSearchParams());
         dispatch(clearAllPublishers());
         dispatch(clearNewsData());
+        dispatch(clearComments());
         history.push("/")
     }
 

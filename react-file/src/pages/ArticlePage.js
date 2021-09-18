@@ -24,7 +24,7 @@ function ArticlePage() {
                 </Row>
                 <Row className="my-2 mx-auto" style={{width:"95%",maxHeight:"60vh",overflowY:"hidden"}}>
                     <Col className="px-0"sm={8} md={3} style={{overflowY:"auto",maxHeight:"60vh",border:"3px solid #363e5c", borderRight:"7px solid #363e5c"}}><ArticleNav/></Col>
-                    <Col className=""sm={8} md={9} style={{borderLeft:"none"}} >
+                    <Col className="" sm={8} md={9} style={{borderLeft:"none"}} >
                         <Row>
                             <Col style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundSize:"contain",backgroundPosition:"center",padding:"0px",border:"none",borderRadius:"0.1rem",height:"40vh",backgroundColor:"#363e5c"}}>
                                 {JSON.stringify(activeArticle)!=="{}" ? <Image src={activeArticle.image} style={{objectPosition:"0 0",objectFit:"cover",height:"100%",width:"100%"}}/> : <h1 style={{color:"#e6e7e8",width:"80%",margin:"auto"}}>Select An Article On The Left To Start Reading</h1>}
