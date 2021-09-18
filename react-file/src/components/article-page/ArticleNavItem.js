@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import { updateActiveArticle,addComment,removeComment,clearComments, setListener } from '../../actions';
 import db from '../../firebase';
 import {collection,query,where,onSnapshot} from 'firebase/firestore';
+import styles from "./ArticleNavItem.module.css";
 
 function ArticleNavItem(props) {
     const dispatch = useDispatch();
@@ -43,8 +44,8 @@ function ArticleNavItem(props) {
     }
     
     return (
-        <React.Fragment>
-            <h6 onClick={handleClick} style={{color:"black",cursor:'pointer'}}>
+        <React.Fragment >
+            <h6 className={styles.articleLink} onClick={handleClick}>
             {props.article.title}
             </h6>
         </React.Fragment>

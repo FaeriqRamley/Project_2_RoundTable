@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {useSelector} from 'react-redux';
 import ArticleNavList from './ArticleNavList';
-
+import styles from "./ArticleNav.module.css";
 const ArticleNav = () => {
     const selectedPublishers = useSelector(state => state.selectedPublishers);
     const newsData = useSelector(state => state.newsData);
@@ -281,7 +281,7 @@ const ArticleNav = () => {
             }
         }
     }
-
+    console.log(styles.test);
     return (
         <div className="accordion" id="articleNav">
             {Object.entries(displayArticle).map((item,index)=>{

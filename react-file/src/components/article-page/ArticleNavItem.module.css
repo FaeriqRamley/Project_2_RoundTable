@@ -1,0 +1,10 @@
+.articleLink {
+    color:black;
+    cursor:pointer;
+    transition:0.3s all ease-in-out;
+}
+
+.articleLink:hover {
+    color:#363e5c;
+    transform: scale(1.02);
+}

@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
+import React from 'react'
 import ArticleNavItem from './ArticleNavItem';
 
 function ArticleNavList(props) {
-    const publisherNoSpace = props.publisher.replaceAll(" ","")
+    let publisherNoSpace = props.publisher.replaceAll(" ","");
+    publisherNoSpace = publisherNoSpace.replaceAll(".","");
     return (
         <div className="accordion-item">
             <h2 className="accordion-header" id={`heading${publisherNoSpace}`}>
