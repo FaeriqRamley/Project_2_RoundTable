@@ -54,7 +54,7 @@ function ArticleDescription() {
                 </Col>
                 <Col sm={{span:2,offset:7}} style={{padding:"10px"}}>
                     <Button variant="outline-warning" onClick={handleSaveToFav} style={{borderRadius:"0",borderColor:"#A38915",width:"100%",padding:"0px"}}>
-                        <span style={{fontSize:"16px",paddign:"0px",color:"#A38915"}}>Favourite Article</span>
+                        <span style={{fontSize:"16px",paddign:"0px",color:"#A38915"}}>Favourite</span>
                     </Button>
                 </Col>
             </Row>

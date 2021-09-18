@@ -22,6 +22,7 @@ function ArticlePage() {
                         <ButtonMenu/>
                     </Col>
                 </Row>
+                <Row><hr className="my-4 m-auto" style={{width:"90%", background:"radial-gradient(rgba(0,0,0,1),rgba(0,0,0,0))"}}/></Row>
                 <Row className="my-2 mx-auto" style={{width:"95%",maxHeight:"60vh",overflowY:"hidden"}}>
                     <Col className="px-0"sm={8} md={3} style={{overflowY:"auto",maxHeight:"60vh",border:"3px solid #363e5c", borderRight:"7px solid #363e5c"}}><ArticleNav/></Col>
                     <Col className="" sm={8} md={9} style={{borderLeft:"none"}} >
@@ -39,7 +40,7 @@ function ArticlePage() {
                         
                     </Col>
                 </Row>
-                
+                <Row><hr className="my-4 m-auto" style={{width:"90%", background:"radial-gradient(rgba(0,0,0,1),rgba(0,0,0,0))"}}/></Row>
                 <Row className="mx-auto mb-4" style={{width:"95%"}}>
                     <Col sm={4} md={{span:9,offset:3}}><CommentDisplay/></Col>
                 </Row>
@@ -52,7 +53,11 @@ function ArticlePage() {
                 >
                     <NotepadModal setShowModal={setShowModal}/>
                 </Modal>
-                <Row><Button style={{width:"200px"}} onClick={()=> setShowModal(true)}>Take some Notes</Button></Row>
+                <Row className="mx-auto my-4" style={{position:"sticky",bottom:"5px",width:"95%",textAlign:"left"}}>
+                    <Col className="p-0" style={{textAlign:"left"}}>
+                        <Button style={{width:"200px"}} onClick={()=> setShowModal(true)}>Take Notes</Button>
+                    </Col>
+                </Row>
             </Container>
             
         </>
