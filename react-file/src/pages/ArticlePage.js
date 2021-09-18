@@ -13,20 +13,6 @@ function ArticlePage() {
     const activeArticle = useSelector(state => state.activeArticle)
     console.log(activeArticle);
 
-
-    // <Row className="mx-auto" style={{width:"95%"}}>
-    // <Col className="px-0"sm={8} md={3} style={{overflowY:"auto",height:"300px"}}><ArticleNav/></Col>
-    // <Col sm={8} md={4} style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundImage:'url("./RoundTable.png")',backgroundSize:"contain",backgroundPosition:"center",padding:"0px",border:"2px solid black",borderRadius:"0.1rem"}}>
-    //     <Image src={activeArticle.image} style={{objectFit:"cover",height:"100%",width:"100%"}}/>
-    // </Col>
-    // <Col sm={8} md={5} style={{textAlign:"left",backgroundColor:"#C8D3DE"}}>
-    //     {JSON.stringify(activeArticle)!=="{}" ? <ArticleDescription/> : <h3>Select an article</h3>}
-    // </Col>
-    
-    // </Row>
-
-
-
     return (
         <Container fluid style={{textAlign:"center"}}>
             <Row className="mx-auto my-4" style={{width:"95%"}}>
@@ -35,10 +21,10 @@ function ArticlePage() {
                 </Col>
             </Row>
             <Row className="my-2 mx-auto" style={{width:"95%",maxHeight:"60vh",overflowY:"hidden"}}>
-                <Col className="px-0"sm={8} md={3} style={{overflowY:"auto",maxHeight:"60vh"}}><ArticleNav/></Col>
-                <Col className=""sm={8} md={9} >
+                <Col className="px-0"sm={8} md={3} style={{overflowY:"auto",maxHeight:"60vh",border:"3px solid #363e5c", borderRight:"7px solid #363e5c"}}><ArticleNav/></Col>
+                <Col className=""sm={8} md={9} style={{borderLeft:"none"}} >
                     <Row>
-                        <Col style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundSize:"contain",backgroundPosition:"center",padding:"0px",border:"2px solid black",borderRadius:"0.1rem",height:"40vh",backgroundColor:"black"}}>
+                        <Col style={{display:"flex",justifyContent:"center",flexDirection:"column",backgroundSize:"contain",backgroundPosition:"center",padding:"0px",border:"none",borderRadius:"0.1rem",height:"40vh",backgroundColor:"#363e5c"}}>
                             <Image src={activeArticle.image} style={{objectPosition:"0 0",objectFit:"cover",height:"100%",width:"100%"}}/>
                         </Col>
                     </Row>
